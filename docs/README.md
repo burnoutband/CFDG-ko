@@ -85,13 +85,13 @@
         > + Networks and subnets (typically a /22 private network)
         > + VMs with specified CPU and memory requirements
         > + Storage for VMs
-        > + File server or blobstore
-        > + DNS, certificates, and wildcard domains
+        + File server or blobstore
+        + DNS, certificates, and wildcard domains
         > + Load balancer to pass traffic into the GoRouter
         > + NAT for traffic flowing back to the load balancer
     * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 - The Cloud Foundry Github Repository
-: https://github.com/cloudfoundry/cf-deployment
+	* https://github.com/cloudfoundry/cf-deployment
 - Summary
     * 
         + Routing : GoRouter, TCPRouter, and external load balancer
