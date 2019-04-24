@@ -82,13 +82,15 @@
         2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 - Infrastructure and Cloud Provider Interface
     * CF 설치 전에 셋팅 해야하는 내용
-        > + Networks and subnets (typically a /22 private network)
-        > + VMs with specified CPU and memory requirements
-        > + Storage for VMs
+        ~~~
+        + Networks and subnets (typically a /22 private network)
+        + VMs with specified CPU and memory requirements
+        + Storage for VMs
         + File server or blobstore
         + DNS, certificates, and wildcard domains
         + Load balancer to pass traffic into the GoRouter
         + NAT for traffic flowing back to the load balancer
+        ~~~
     * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 - The Cloud Foundry Github Repository
 	* https://github.com/cloudfoundry/cf-deployment
