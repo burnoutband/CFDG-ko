@@ -24,7 +24,8 @@
 
 ###  Diego
     * the Container runtime architecture for CF
-    * provides the scheduling, orchestration, and placement of application and tasks
+
+* provides the scheduling, orchestration, and placement of application and tasks
 
 ###  Garden and runC
     1. Garden (a container management API: Go로 작성됨)
