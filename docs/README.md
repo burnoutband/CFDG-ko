@@ -95,8 +95,8 @@
 	* https://github.com/cloudfoundry/cf-deployment  
 
 
-- Summary
-	<img src="../images/3-1.CF_Compoonent_layers.png" width="400"> Cloud Foundry Component layers </img>
+- Summary  
+	<img src="../images/3-1.CF_Compoonent_layers.png" width="400">
     + Routing : GoRouter, TCPRouter, and external load balancer
     + Authentication and user management :  User Access and Authentication Management
     + Application life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
