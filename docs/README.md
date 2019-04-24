@@ -12,12 +12,11 @@
 ### The Application Life-Cycle Policy
 ### Continuous Delivery Pipelines
 - Concourse.ci
-	* Concourse.ci
-		+ Concourse.ci
 
-- Concourse.ci
+
 	- Concourse.ci
 		- Concourse.ci
+			- Concourse.ci
 
 
 ###  Application Execution
