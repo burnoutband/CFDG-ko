@@ -12,6 +12,7 @@
 ### The Application Life-Cycle Policy
 ### Continuous Delivery Pipelines
     1. Concourse.ci
+
 ###  Application Execution
     1. application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
 ###  Diego
