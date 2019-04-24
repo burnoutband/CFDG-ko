@@ -3,35 +3,35 @@
 ## Ch 1 - The Cloud-Native Platform
 ## Ch 2 - Concepts
 ## Ch 3 - Components
-3.1 User Management and UAA
-3.2 The Cloud Controller
-3.3 System State
-3.4 The Cloud Controller Blobstore
-3.5 The CCDB
-3.6 The Application Life-Cycle Policy
-3.7 Continuous Delivery Pipelines
-    3.7.1 Concourse.ci
-3.8 Application Execution
-    3.8.1 application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
-3.9 Diego
-    3.1. the Container runtime architecture for CF
-    3.2. provides the scheduling, orchestration, and placement of application and tasks
-3.10 Garden and runC
-    3.1. Garden (a container management API: Go로 작성됨)
-    3.2. runC (OCI compatible backend container implementation)
-        3.1. Docker 같은 container runtime 임
-        3.2. OCI: Open Container Initiative: https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
-3.11 Metrics and Logging
-3.12 Metron Agent
-    3.12.1 * Cell로부터 application logs 를 모은다 (gathering)
+1. User Management and UAA
+2. The Cloud Controller
+3. System State
+4. The Cloud Controller Blobstore
+5. The CCDB
+6. The Application Life-Cycle Policy
+7. Continuous Delivery Pipelines
+    1. Concourse.ci
+8. Application Execution
+    1. application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
+9. Diego
+    1. the Container runtime architecture for CF
+    2. provides the scheduling, orchestration, and placement of application and tasks
+10. Garden and runC
+    1. Garden (a container management API: Go로 작성됨)
+    2. runC (OCI compatible backend container implementation)
+        1. Docker 같은 container runtime 임
+        2. OCI: Open Container Initiative: https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
+11. Metrics and Logging
+12. Metron Agent
+    * Cell로부터 application logs 를 모은다 (gathering)
         * Cell = CF Diego host
-    3.12.2 application logs 와 component metrics를 Loggregator subsystem으로 포워딩한다 (forwarding)
-3.13 Loggregator (log aggregator)
-    3.* Firehose
-        1. 파이어호스를 통해서 application logs, container metrics (memory, CPU, and disk-per-app instance), component 3.counter/HTTP events 에 접근할 수 있음 (component logs 는 제공안함)
-        3.2. Component logs는 rsyslog drain 을 통해서 검색할 수 있음
-3.14 Messaging
-3.15 Additional Components
+    * application logs 와 component metrics를 Loggregator subsystem으로 포워딩한다 (forwarding)
+13. Loggregator (log aggregator)
+    * Firehose
+        1. 파이어호스를 통해서 application logs, container metrics (memory, CPU, and disk-per-app instance), component counter/HTTP events 에 접근할 수 있음 (component logs 는 제공안함)
+        2. Component logs는 rsyslog drain 을 통해서 검색할 수 있음
+14. Messaging
+15. Additional Components
     * Stacks
         1. prebuilt root filesystem (rootfs)
         2. 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
@@ -88,6 +88,8 @@
             * Services : Service Brokers, User Provided Service)
             * Messaging : NATS (Network Address Translation) Messaging Bus
             * Metrics and logging : Loggregator (including Doppler and the Firehose)
+
+
 
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
