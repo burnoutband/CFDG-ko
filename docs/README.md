@@ -87,8 +87,8 @@
         > + Storage for VMs
         + File server or blobstore
         + DNS, certificates, and wildcard domains
-        > + Load balancer to pass traffic into the GoRouter
-        > + NAT for traffic flowing back to the load balancer
+        + Load balancer to pass traffic into the GoRouter
+        + NAT for traffic flowing back to the load balancer
     * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 - The Cloud Foundry Github Repository
 	* https://github.com/cloudfoundry/cf-deployment
