@@ -11,13 +11,15 @@
 ### The CCDB
 ### The Application Life-Cycle Policy
 ### Continuous Delivery Pipelines
-    1. Concourse.ci
+    * Concourse.ci
 
 ###  Application Execution
-    1. application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
+    * application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
+
 ###  Diego
-    1. the Container runtime architecture for CF
-    2. provides the scheduling, orchestration, and placement of application and tasks
+    * the Container runtime architecture for CF
+    * provides the scheduling, orchestration, and placement of application and tasks
+
 ###  Garden and runC
     1. Garden (a container management API: Go로 작성됨)
     2. runC (OCI compatible backend container implementation)
