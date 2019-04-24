@@ -3,6 +3,11 @@
 ## Ch 1 - The Cloud-Native Platform
 ## Ch 2 - Concepts
 ## Ch 3 - Components
+
+### User Management and UAA
+### The Cloud Controller
+### System State
+
 1. User Management and UAA
 2. The Cloud Controller
 3. System State
