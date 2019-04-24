@@ -96,8 +96,7 @@
 
 
 - Summary
-	* Cloud Foundry Component layers   
-	<img src="../images/3-1.CF_Compoonent_layers.png" width="500">. 
+	* ![Cloud Foundry Component layers]	<img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
 
     * Routing : GoRouter, TCPRouter, and external load balancer
     * Authentication and user management :  User Access and Authentication Management
