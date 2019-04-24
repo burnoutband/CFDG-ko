@@ -11,7 +11,7 @@
 ### The CCDB
 ### The Application Life-Cycle Policy
 ### Continuous Delivery Pipelines
-    - Concourse.ci
+- Concourse.ci
 
 ###  Application Execution
     application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
