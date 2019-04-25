@@ -30,7 +30,8 @@
 1. Garden (a container management API: Go로 작성됨)
 2. runC (OCI compatible backend container implementation)
     - Docker 같은 container runtime 임
-    - OCI: Open Container Initiative: https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
+    - OCI: Open Container Initiative: 
+        + https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
 
 ### Metrics and Logging
 ### Metron Agent
