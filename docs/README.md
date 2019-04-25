@@ -8,9 +8,9 @@
 
 ### The Cloud Controller
 
-#### System State
+> #### System State
 
-#### The Cloud Controller Blobstore
+> #### The Cloud Controller Blobstore
 
 ### The CCDB
 
@@ -46,12 +46,12 @@
 
 ### Messaging
 ### Additional Components
-#### Stacks
+> #### Stacks
 - prebuilt root filesystem (rootfs)
 - 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
 - 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
 
-#### A marketplace of On-Demand Services
+> #### A marketplace of On-Demand Services
 - CF는 마켓플레이스 개념을 가지고 있다
 - 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
 - CF marketplace는 플랫폼 확장 포인트이다
@@ -69,9 +69,9 @@
         1. Reserved resource 는 한마디로 service instance 이다
     4. The key concern is that the broker implements the required API to interact with the Cloud Controller
 - User-provided services
-    1. Service Broker 방식이외에도, 플랫폼 운영자는 기존 서비스들을 User-provided services 를 통해서 노출할 수 있음. customer database 를 cf application과 binding 할 수 있다는 의미
+    1. Service Broker 방식이외에도, 플랫폼 운영자는 기존 서비스들을 User-provided services 를 통해서 노출할 수 있음. customer database 를 cf application과 binding 할 수 있다는 의미  
 
-#### Buildpacks and Docker Images
+> #### Buildpacks and Docker Images
 1. cf push 배포 할 수 있는 두가지 형태
     * A standalone application
         + war/jar file or raw source code (link to a git remote)  --> 이걸 buildpack 과정이 droplet으로 만든다 (컨테이너이미지)
@@ -84,7 +84,7 @@
     1. Buildpacks 은 개발자의 application artifact 를 가져와서 컨테이너 이미지화 시킨다. 컨테이너 이미지화 된 그것을 우리는 *__droplet__* 이라고 부른다
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
-#### Infrastructure and Cloud Provider Interface
+> #### Infrastructure and Cloud Provider Interface
 * __CF 설치 전에 셋팅 해야하는 내용__
     > + Networks and subnets (typically a /22 private network)
     > + VMs with specified CPU and memory requirements
