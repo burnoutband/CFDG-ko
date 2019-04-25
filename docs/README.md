@@ -17,14 +17,14 @@
 ### The Application Life-Cycle Policy
 
 ### Continuous Delivery Pipelines
-- Concourse.ci
+* Concourse.ci
 
 ###  Application Execution
-- application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
+* application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
 
 ###  Diego
-- the Container runtime architecture for CF
-- provides the scheduling, orchestration, and placement of application and tasks
+* the Container runtime architecture for CF
+* provides the scheduling, orchestration, and placement of application and tasks
 
 ###  Garden and runC
 1. Garden (a container management API: Go로 작성됨)
@@ -85,7 +85,7 @@
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
 > #### Infrastructure and Cloud Provider Interface
-* __CF 설치 전에 셋팅 해야하는 내용__
+- __CF 설치 전에 셋팅 해야하는 내용__
     > + Networks and subnets (typically a /22 private network)
     > + VMs with specified CPU and memory requirements
     > + Storage for VMs
@@ -100,24 +100,25 @@
 * https://github.com/cloudfoundry/cf-deployment  
 
 ### Summary
-* __Cloud Foundry Component layers__  
+- __Cloud Foundry Component layers__  
 <img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
  
-* __Routing__ : GoRouter, TCPRouter, and external load balancer
-* __Authentication__ and user management :  User Access and Authentication Management
-* __Application__ life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
-* __App storage and execution__ : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
-* __Services__ : Service Brokers, User Provided Service)
-* __Messaging__ : NATS (Network Address Translation) Messaging Bus
-* __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
+- __Routing__ : GoRouter, TCPRouter, and external load balancer
+- __Authentication__ and user management :  User Access and Authentication Management
+- __Application__ life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
+- __App storage and execution__ : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
+- __Services__ : Service Brokers, User Provided Service)
+- __Messaging__ : NATS (Network Address Translation) Messaging Bus
+- __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
-> - __CF 설치 전, 이해하고 있어야 하는 내용__  
+- __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
     > * Non-technical considerations
     > * Cloud Foundry dependencies and integrations
     > * IaaS and infrastructure design
-    > * Networking design and routing
+    > * Networking design and routing 
+
 1. Installation Steps
     1. IaaS 환경 생성 (create) 및 설정 (configure) :  networks, security groups, blobstores, load balancers
     2. 외부기업용서비스 설정 : LDAP, syslog endpoints or monitoring, metrics dashboards
