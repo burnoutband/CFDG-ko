@@ -113,9 +113,6 @@
 - __Services__ : Service Brokers, User Provided Service)
 - __Messaging__ : NATS (Network Address Translation) Messaging Bus
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
-<img src="https://github.com/burnoutband/CFDG-ko/blob/master/images/3-1.CF_Compoonent_layers.png" width="500">  
-
-![Component Layers](https://github.com/burnoutband/CFDG-ko/blob/master/images/3-1.CF_Compoonent_layers.png "Logo Title Text 1")
 
 # _Ch 4 - Preparing Your Cloud Foundry Environment_
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
@@ -196,7 +193,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * bosh-bootloader는 사용자를 대신해서 infrastructure를 구성하고 자동으로 3개의 AZs를 설정한다
 
 ### Sizing and Scoping the Infrastructure
-<img src="../images/Figure4-1.png" width="600">  
+<img src="./images/Figure4-1.png" width="600">  
 
 - Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임  
 - 명확한 Sizing 보다는 Scoping 하는 걸 추천함. 
@@ -212,7 +209,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Cell sizing
     + 제일 중요. AI 가 증가할 때 Cell 이 대부분 증가한다
     + Typical sizing for a Cell
-        - <img src="../images/Table4-1.png" width="500">  
+        - <img src="./images/Table4-1.png" width="500">  
 
 * Overcommitting Memory
     + Cell memory 는 8G, APP memory는 2G 라고 하면 하나의 Cell에 3개의 2G가 앱이 running 될 수 있다. 그리고, 이건 1G 메모리가 낭비된다. 결국 Cell 이 늘어나면 낭비되는 메모리도 누적된다.
@@ -234,7 +231,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
         - HA 와 Rolling Upgrade 를 위함
     + GoRouter 경우, application traffic의 크리티컬 패쓰임. 그래서 AZ 당 2개 를 고려할 필요있음
         - 만약에 하나의 AZ이 go offline 한다면, 발생하는 Peak traffic을 처리해야함.
-        - <img src="../images/GoRouter_az.png" width="600">  
+        - <img src="./images/GoRouter_az.png" width="600">  
          
 ### Setting Up an AWS VPC
 * VPC 셋팅 전 필요한 것
@@ -247,9 +244,9 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Tip
     + Bosh-bootloader 를 통해 VPC setup을 시작할 수 있음.
         - 아래 표는 AWS VPC 수동 셋팅시에 고려해야하는 관련 dependencies 목록
-        - <img src="../images/Table4-2.png" width="400">  
+        - <img src="./images/Table4-2.png" width="400">  
     + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야 함
-        - <img src="../images/Figure4-2.png" width="500">  
+        - <img src="./images/Figure4-2.png" width="500">  
 
 ### Jumpbox
 * https://github.com/cloudfoundry-community/jumpbox-boshrelease
@@ -258,7 +255,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 ## Networking design and routing
 본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
 
-* <img src="../images/NetworkDependencies.png" width="300">  
+* <img src="./images/NetworkDependencies.png" width="300">  
 * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
 * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
 
@@ -290,7 +287,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     * Core Cloud Foundry Components 를 위한 전용 서브넷 (dedicated subnet)
     * IPSec 사용을 필요로 하는 서비스들을 위한 전용 IPSec 서브넷 (dedicated Internet Protocol security subnet)
     * IPSec 을 사용하지 않는 서비스들을 위한 전용 서브넷 (dedicated subnet for services without using IPSec)
-    * <img src="../images/Figure4-3.png" width="500">  
+    * <img src="./images/Figure4-3.png" width="500">  
 
 ### Security Groups
 
