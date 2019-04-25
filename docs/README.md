@@ -19,39 +19,39 @@
 ## Continuous Delivery Pipelines
 * Concourse.ci
 
-###  Application Execution
+##  Application Execution
 * application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
 
-###  Diego
+##  Diego
 * the Container runtime architecture for CF
 * provides the scheduling, orchestration, and placement of application and tasks
 
-###  Garden and runC
+##  Garden and runC
 1. Garden (a container management API: Go로 작성됨)
 2. runC (OCI compatible backend container implementation)
     - Docker 같은 container runtime 임
     - OCI: Open Container Initiative: 
         + https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
 
-### Metrics and Logging
-### Metron Agent
+## Metrics and Logging
+## Metron Agent
 - Cell로부터 application logs 를 모은다 (gathering)
     * Cell = CF Diego host
 - application logs 와 component metrics를 Loggregator subsystem으로 포워딩한다 (forwarding)
 
-### Loggregator (log aggregator)
+## Loggregator (log aggregator)
 - Firehose
     1. 파이어호스를 통해서 application logs, container metrics (memory, CPU, and disk-per-app instance), component counter/HTTP events 에 접근할 수 있음 (component logs 는 제공안함)
     2. Component logs는 rsyslog drain 을 통해서 검색할 수 있음
 
-### Messaging
-### Additional Components
-> #### Stacks
+## Messaging
+## Additional Components
+> ### Stacks
 - prebuilt root filesystem (rootfs)
 - 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
 - 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
 
-> #### A marketplace of On-Demand Services
+> ### A marketplace of On-Demand Services
 - CF는 마켓플레이스 개념을 가지고 있다
 - 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
 - CF marketplace는 플랫폼 확장 포인트이다
@@ -71,7 +71,7 @@
 - User-provided services
     1. Service Broker 방식이외에도, 플랫폼 운영자는 기존 서비스들을 User-provided services 를 통해서 노출할 수 있음. customer database 를 cf application과 binding 할 수 있다는 의미  
 
-> #### Buildpacks and Docker Images
+> ### Buildpacks and Docker Images
 1. cf push 배포 할 수 있는 두가지 형태
     * A standalone application
         + war/jar file or raw source code (link to a git remote)  --> 이걸 buildpack 과정이 droplet으로 만든다 (컨테이너이미지)
@@ -84,7 +84,7 @@
     1. Buildpacks 은 개발자의 application artifact 를 가져와서 컨테이너 이미지화 시킨다. 컨테이너 이미지화 된 그것을 우리는 *__droplet__* 이라고 부른다
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
-> #### Infrastructure and Cloud Provider Interface
+> ### Infrastructure and Cloud Provider Interface
 - __CF 설치 전에 셋팅 해야하는 내용__
     > + Networks and subnets (typically a /22 private network)
     > + VMs with specified CPU and memory requirements
@@ -96,10 +96,10 @@
 
 * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 
-### The Cloud Foundry Github Repository
+## The Cloud Foundry Github Repository
 * https://github.com/cloudfoundry/cf-deployment  
 
-### Summary
+## Summary
 - __Cloud Foundry Component layers__  
 <img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
  
@@ -112,7 +112,7 @@
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 
-## Ch 4 - Preparing Your Cloud Foundry Environment
+# Ch 4 - Preparing Your Cloud Foundry Environment
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
     > * Non-technical considerations
@@ -120,7 +120,7 @@
     > * IaaS and infrastructure design
     > * Networking design and routing 
 
-### Installation Steps
+## Installation Steps
 1. IaaS 환경 생성 (create) 및 설정 (configure) :  networks, security groups, blobstores, load balancers
 2. 외부기업용서비스 설정 : LDAP, syslog endpoints or monitoring, metrics dashboards
 3. BOSH Director 배포하기
@@ -129,11 +129,11 @@
 6. CF와 필요한 기업서비스들을 통합하기 : deployment manifest 를 가지고 함
 7. Cloud Foundry 배포하기
 
-### Non-technical Considerations
+## Non-technical Considerations
 - The Team structure required for installing Cloud Foundry
 - The required deployment topology of Cloud Foundry
 
-> #### Team Structure: Platform Operations for the  Enterprise
+> ### Team Structure: Platform Operations for the  Enterprise
 - 위 두가지항목은 대기업에서 꼭 고려해야할 사항이다
 - CF배포는 비즈니스 단위별로 하나씩 배포 또는 DevOps 중심의 팀이 사용할 수 있는 중앙플랫폼으로서 배포
 - 대부분의 기업들은 Centralized Platform Operations team을 구성한다
@@ -148,14 +148,14 @@
     * Release management
     * Project management
     
-> #### Deployment Topology
+> ### Deployment Topology
 * How many Cloud Foundry instances should you deploy? 
 
 * A number of factors to consider when addressing this question
     + 전체회사 당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
     + 해당 문단 다시 읽어보기
 
-### Cloud Foundry dependencies and integrations
+## Cloud Foundry dependencies and integrations
 * CF dependencies
     1. 기본 디펜던시들
         * Provisioning the IaaS, Configuring a load balancer, syslog endpoints, SSO solutions, metrics dashboards
@@ -171,7 +171,7 @@
         * System monitoring and metrics dashboards (DataDog) set up to receive system metrics
         * Application performance management (APM) tool (Dynatrace, NewRelic, AppDynamics) set up for receiving application metrics) 
 
-### IaaS and Infrastructure design
+## IaaS and Infrastructure design
 Through the use of the BOSH release tool chain, Cloud Foundry is designed to run on any IaaS provider that has a supported CPI
 
 - BOSH CPIs for the following infrastructures:
@@ -185,12 +185,12 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     * RackHD
     * Your local machine (for deploying BOSH Lite)
 
-> #### Designing for Resilience
+> ### Designing for Resilience
 * HA를 위해서 AZs 를 사용하고 싶으면, 최소 3개의 AZs가 필요함 (By Raft consensus algorithm)
 * Cloud Foundry deployment 예제를 위해서 Bosh-Bootloader 와 CF deployment를 사용
 * bosh-bootloader는 사용자를 대신해서 infrastructure를 구성하고 자동으로 3개의 AZs를 설정한다
 
-> #### Sizing and Scoping the Infrastructure
+> ### Sizing and Scoping the Infrastructure
 >> * 
 >> * Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
 >> * 명확한 Sizing 보다는 Scoping 하는 걸 추천함
@@ -227,7 +227,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     + GoRouter 경우, application traffic의 크리티컬 패쓰임. 그래서 AZ 당 2개 를 고려할 필요있음
         - 만약에 하나의 AZ이 go offline 한다면, 발생하는 Peak traffic을 처리해야함.
          
-> #### Setting Up an AWS VPC
+> ### Setting Up an AWS VPC
 * VPC 셋팅 전 필요한 것
     + CF 설치에 필요한 최소 리소스를 수용할 수 있는 AWS 계정
     + 적절한 Region (예: US-west)
@@ -240,18 +240,18 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
         - 아래 표는 AWS VPC 수동 셋팅시에 고려해야하는 관련 dependencies 목록
     + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야
 
-> #### Jumpbox
+> ### Jumpbox
 * https://github.com/cloudfoundry-community/jumpbox-boshrelease
 * 요놈을 사용하면 jumbox에 ssh 로 접속하지 않고, SOCKS5 프로토콜을 통해 나의 workstation 의 로컬포트를 통해서 CLI 를 실행할 수 있음. (???
 
-### Networking design and routing
+## Networking design and routing
 본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
 
 * 
 * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
 * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
 
-> #### Using Static IPs
+> ### Using Static IPs
 * Cloud Foundry components = instance groups: BOSH 세계에서는 instance groups 라고 칭함)
     + 이 녀석들은 static IP 가 필요하거나 DNS 가 필요함. 아래와 같은 놈들임.
         - Load balancer (static IP for HAProxy, VIP for F5, etc.)
@@ -270,7 +270,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
         - etcd
     + 정리: CF components 는 외부DNS resolution (IP정보획득)을 통해 접근하거나, Consul을 통한 내부 DNS resolution 을 통해 접근할 수 있다. 
 
-> #### Subnets
+> ### Subnets
 * public subnet 경우 -> NAT 없는 Internet GW 가 필요
     * 모든 VM 은 public IP 가 필요하게 됨. (인터넷 접근이 필요한 VM 경우)
 * private subnet 경우 -> NAT gateway 또는 NAT Instance 가 필요
@@ -281,11 +281,11 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     * IPSec 을 사용하지 않는 서비스들을 위한 전용 서브넷 (dedicated subnet for services without using IPSec)
     * 
 
-> #### Security Groups
+> ### Security Groups
 
-> #### Setting Up the Load Balancer
+> ### Setting Up the Load Balancer
 
-> #### Setting Up Domains and Certificates
+> ### Setting Up Domains and Certificates
 * CF 는 기본도메인으로 Registered  wild card domain 이 필요
 * SSL certificate 하고 Cloud Controller 를 설정할 때 위 도메인이 필요
     + In AWS, Server Certificate 생성하기
@@ -310,7 +310,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
             = $ aws iam upload-server-certificate --server-certificate-name <YOUR_CERT_NAME> \ --certificate-body file://<YOUR_CERT.pem> \ --private-key file://<YOUR_KEY.pem>
     + 마지막으로, Route53에서 ELB를 가리키는 도메인 네임을 등록하기~
 
-### Summary
+## Summary
 > - Cloud Foundry 는 배포하기 전에 심사숙고가 필요한 복잡한 분산 시스템
 > - 효율적인 노력과 측정은 미래자원 경합 또는 인프라스트럭처 그리고 구성요소 실패와 같은 도전적인 일들을 완화시킨다.
 
@@ -324,17 +324,17 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 
-## Ch5 - Installing and Configuring Cloud Foundry
-## Ch 6 - Diego
-## Ch 7 - Routing Considerations
-## Ch 8 - Containers, Containers, Containers
-## Ch 9 - Buildpacks and Docker
-## Ch 10 - BOSH Concepts
-## Ch 11 - BOSH Releases
-## Ch 12 - BOSH Deployments
-## Ch 13 - BOSH Components and Commands
-## Ch 14 - Debugging Cloud Foundry
-## Ch 15 - User Account and Authentication Management
-## Ch 16 - Designing for Resilience, Planning for Disaster
-## Ch 17 - Cloud Foundry Roadmap
+# Ch5 - Installing and Configuring Cloud Foundry
+# Ch 6 - Diego
+# Ch 7 - Routing Considerations
+# Ch 8 - Containers, Containers, Containers
+# Ch 9 - Buildpacks and Docker
+# Ch 10 - BOSH Concepts
+# Ch 11 - BOSH Releases
+# Ch 12 - BOSH Deployments
+# Ch 13 - BOSH Components and Commands
+# Ch 14 - Debugging Cloud Foundry
+# Ch 15 - User Account and Authentication Management
+# Ch 16 - Designing for Resilience, Planning for Disaster
+# Ch 17 - Cloud Foundry Roadmap
 
