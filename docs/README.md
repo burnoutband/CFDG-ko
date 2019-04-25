@@ -111,6 +111,7 @@
 - __Messaging__ : NATS (Network Address Translation) Messaging Bus
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
+
 ## Ch 4 - Preparing Your Cloud Foundry Environment
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
@@ -146,11 +147,11 @@
             * Release management
             * Project management
     2. Deployment Topology 
-    > How many Cloud Foundry instances should you deploy? 
+        > How many Cloud Foundry instances should you deploy? 
         
-        - A number of factors to consider when addressing this question
-            * 전체회사당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
-            * 해당 문단 다시 읽어보기
+    - A number of factors to consider when addressing this question
+        * 전체회사당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
+        * 해당 문단 다시 읽어보기
 4. Cloud Foundry dependencies and integrations
     * CF dependencies
         1. 기본 디펜던시들
