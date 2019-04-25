@@ -130,8 +130,8 @@
 7. Cloud Foundry 배포하기
 
 ### Non-technical Considerations
-> - The Team structure required for installing Cloud Foundry
-> - The required deployment topology of Cloud Foundry
+- The Team structure required for installing Cloud Foundry
+- The required deployment topology of Cloud Foundry
 
 > #### Team Structure: Platform Operations for the  Enterprise
 - 위 두가지항목은 대기업에서 꼭 고려해야할 사항이다
@@ -149,7 +149,7 @@
     * Project management
     
 > #### Deployment Topology
-> * How many Cloud Foundry instances should you deploy? 
+* How many Cloud Foundry instances should you deploy? 
 
 * A number of factors to consider when addressing this question
     + 전체회사 당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
@@ -172,7 +172,7 @@
         * Application performance management (APM) tool (Dynatrace, NewRelic, AppDynamics) set up for receiving application metrics) 
 
 ### IaaS and Infrastructure design
-> Through the use of the BOSH release tool chain, Cloud Foundry is designed to run on any IaaS provider that has a supported CPI
+Through the use of the BOSH release tool chain, Cloud Foundry is designed to run on any IaaS provider that has a supported CPI
 
 - BOSH CPIs for the following infrastructures:
     * GCP
@@ -191,15 +191,16 @@
 * bosh-bootloader는 사용자를 대신해서 infrastructure를 구성하고 자동으로 3개의 AZs를 설정한다
 
 > #### Sizing and Scoping the Infrastructure
-> * 
-> * Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
-> * 명확한 Sizing 보다는 Scoping 하는 걸 추천함
-> * 인프라 구성과 사이징을 위한 참고자료
-    > + Reference architecture를 참고하여 필수 콤포넌트들을 식별 (CF components)
-    > + PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
-> * 구성요소를 구성하고 예상 워크로드 (workload)를 기반으로 Sizing 수행
-> * Peak load에서 application 이 어떻게 되는지 영향도 파악하기
-> * 동시접속 처리를 위해 더 많은 instances가 필요 -> 추가된 instance들로 인해 Cell 리소스 추가 필요 -> 추가된 app들의 트래픽 처리량이 늘어남에 따라 동시접속 증가 -> 증가된 동시접속 처리를 위해서 GoRouter가 더 필요
+>> * 
+>> * Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
+>> * 명확한 Sizing 보다는 Scoping 하는 걸 추천함
+>> * 인프라 구성과 사이징을 위한 참고자료
+>>   > + Reference architecture를 참고하여 필수 콤포넌트들을 식별 (CF components)
+>>   > + PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
+>> * 구성요소를 구성하고 예상 워크로드 (workload)를 기반으로 Sizing 수행
+>> * Peak load에서 application 이 어떻게 되는지 영향도 파악하기
+>> * 동시접속 처리를 위해 더 많은 instances가 필요 -> 추가된 instance들로 인해 Cell 리소스 추가 필요 -> 추가된 app들의 트래픽 처리량이 늘어남에 따라 동시접속 증가 -> 증가된 동시접속 처리를 위해서 GoRouter가 더 필요
+
 
 * Cell sizing
     + 제일 중요. AI 가 증가할 때 Cell 이 대부분 증가한다
@@ -246,7 +247,7 @@
 * 요놈을 사용하면 jumbox에 ssh 로 접속하지 않고, SOCKS5 프로토콜을 통해 나의 workstation 의 로컬포트를 통해서 CLI 를 실행할 수 있음. (???
 
 ### Networking design and routing
-> 본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
+본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
 
 * 
 * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
@@ -283,7 +284,9 @@
     * 
 
 > #### Security Groups
+>
 > #### Setting Up the Load Balancer
+>
 > #### Setting Up Domains and Certificates
 * CF 는 기본도메인으로 Registered  wild card domain 이 필요
 * SSL certificate 하고 Cloud Controller 를 설정할 때 위 도메인이 필요
