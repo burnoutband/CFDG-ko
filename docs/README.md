@@ -46,28 +46,30 @@
 ### Messaging
 ### Additional Components
 #### Stacks
-    1. prebuilt root filesystem (rootfs)
-    2. 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
-    3. 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
+1. prebuilt root filesystem (rootfs)
+2. 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
+3. 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
+
 #### A marketplace of On-Demand Services
-    1. CF는 마켓플레이스 개념을 가지고 있다
-    2. 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
-    3. CF marketplace는 플랫폼 확장 포인트이다
-        1. 개발자들은 실행중인 애플리케이션을 지원하기 위해 서비스들을 마켓플레이스에서 사용할 수 있다
-    4. 플랫폼 운영자는 service brokers, route services user-provided services 를 통해서 추가적인 서비스들을 마켓플레이스에 추가할 수 있다
-        1. 마켓플레이스는 CF 사용자에게 셀프서비스, 추가 서비스 인스턴스의 주문형 프로비저닝을 제공한다
-        2. 서비스 개발자는 마켓플레이스에 플랫폼에서 실행할 수 있는 어떤 애플리케이션을 서비스 형태로 노출할 수 있다
-    + Service brokers
-        1. 개발자들은 Service Instance를 프로비전할 수 있다. 그리고 Service Broker를 통해서 그 service instance를 애플리케이션에 바인딩할 수 있다
-        2. 서비스 브로커는 CF 사용자에게 다음과 같은 것을 제공하기 위해 CAPI (CF API) 를 구현한다 (자기 서비스를 제공하고 싶은 사람이 해야 할 일)
-            - List Service Offerings
-            - Provision (create) and deprovision (delete) service instance
-            - Enable applications to bind to, and ubind from, the service instances
-        3. Provision 은 서비스 리소스를 예약하는 것. Bind 는 리소스접근에 필요한 정보를 애플리케이션에 전달하는 것
-            1. Reserved resource 는 한마디로 service instance 이다
-        4. The key concern is that the broker implements the required API to interact with the Cloud Controller
-    + User-provided services
-        1. Service Broker 방식이외에도, 플랫폼 운영자는 기존 서비스들을 User-provided services 를 통해서 노출할 수 있음. customer database 를 cf application과 binding 할 수 있다는 의미
+1. CF는 마켓플레이스 개념을 가지고 있다
+2. 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
+3. CF marketplace는 플랫폼 확장 포인트이다
+    1. 개발자들은 실행중인 애플리케이션을 지원하기 위해 서비스들을 마켓플레이스에서 사용할 수 있다
+4. 플랫폼 운영자는 service brokers, route services user-provided services 를 통해서 추가적인 서비스들을 마켓플레이스에 추가할 수 있다
+    1. 마켓플레이스는 CF 사용자에게 셀프서비스, 추가 서비스 인스턴스의 주문형 프로비저닝을 제공한다
+    2. 서비스 개발자는 마켓플레이스에 플랫폼에서 실행할 수 있는 어떤 애플리케이션을 서비스 형태로 노출할 수 있다
+- Service brokers
+    1. 개발자들은 Service Instance를 프로비전할 수 있다. 그리고 Service Broker를 통해서 그 service instance를 애플리케이션에 바인딩할 수 있다
+    2. 서비스 브로커는 CF 사용자에게 다음과 같은 것을 제공하기 위해 CAPI (CF API) 를 구현한다 (자기 서비스를 제공하고 싶은 사람이 해야 할 일)
+        - List Service Offerings
+        - Provision (create) and deprovision (delete) service instance
+        - Enable applications to bind to, and ubind from, the service instances
+    3. Provision 은 서비스 리소스를 예약하는 것. Bind 는 리소스접근에 필요한 정보를 애플리케이션에 전달하는 것
+        1. Reserved resource 는 한마디로 service instance 이다
+    4. The key concern is that the broker implements the required API to interact with the Cloud Controller
+- User-provided services
+    1. Service Broker 방식이외에도, 플랫폼 운영자는 기존 서비스들을 User-provided services 를 통해서 노출할 수 있음. customer database 를 cf application과 binding 할 수 있다는 의미
+
 #### Buildpacks and Docker Images
 1. cf push 배포 할 수 있는 두가지 형태
     * A standalone application
@@ -83,32 +85,32 @@
 
 
 #### Infrastructure and Cloud Provider Interface
-    * CF 설치 전에 셋팅 해야하는 내용
-        >+ Networks and subnets (typically a /22 private network)
-        >+ VMs with specified CPU and memory requirements
-        >+ Storage for VMs
-        >+ File server or blobstore
-        >+ DNS, certificates, and wildcard domains
-        >+ Load balancer to pass traffic into the GoRouter
-        >+ NAT for traffic flowing back to the load balancer
-        
-    * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
+* CF 설치 전에 셋팅 해야하는 내용
+    >+ Networks and subnets (typically a /22 private network)
+    >+ VMs with specified CPU and memory requirements
+    >+ Storage for VMs
+    >+ File server or blobstore
+    >+ DNS, certificates, and wildcard domains
+    >+ Load balancer to pass traffic into the GoRouter
+    >+ NAT for traffic flowing back to the load balancer
+    
+* CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 
 ### The Cloud Foundry Github Repository
-	* https://github.com/cloudfoundry/cf-deployment  
+* https://github.com/cloudfoundry/cf-deployment  
 
 
 ### Summary
-	* Cloud Foundry Component layers  
-	<img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
-	 
-    * Routing : GoRouter, TCPRouter, and external load balancer
-    * Authentication and user management :  User Access and Authentication Management
-    * Application life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
-    * App storage and execution : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
-    * Services : Service Brokers, User Provided Service)
-    * Messaging : NATS (Network Address Translation) Messaging Bus
-    * Metrics and logging : Loggregator (including Doppler and the Firehose)
+* Cloud Foundry Component layers  
+<img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
+ 
+* Routing : GoRouter, TCPRouter, and external load balancer
+* Authentication and user management :  User Access and Authentication Management
+* Application life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
+* App storage and execution : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
+* Services : Service Brokers, User Provided Service)
+* Messaging : NATS (Network Address Translation) Messaging Bus
+* Metrics and logging : Loggregator (including Doppler and the Firehose)
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
 ## Ch5 - Installing and Configuring Cloud Foundry
