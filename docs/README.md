@@ -113,7 +113,7 @@
 - __Services__ : Service Brokers, User Provided Service)
 - __Messaging__ : NATS (Network Address Translation) Messaging Bus
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
-
+<img src="https://github.com/burnoutband/CFDG-ko/blob/master/images/3-1.CF_Compoonent_layers.png" width="500">  
 
 # _Ch 4 - Preparing Your Cloud Foundry Environment_
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
