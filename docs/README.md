@@ -105,13 +105,13 @@
 * Cloud Foundry Component layers  
 <img src="../images/3-1.CF_Compoonent_layers.png" width="500">  
  
-* Routing : GoRouter, TCPRouter, and external load balancer
-* Authentication and user management :  User Access and Authentication Management
-* Application life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
-* App storage and execution : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
-* Services : Service Brokers, User Provided Service)
-* Messaging : NATS (Network Address Translation) Messaging Bus
-* Metrics and logging : Loggregator (including Doppler and the Firehose)
+* __Routing__ : GoRouter, TCPRouter, and external load balancer
+* __Authentication__ and user management :  User Access and Authentication Management
+* __Application__ life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
+* __App__ storage and execution : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
+* __Services__ : Service Brokers, User Provided Service)
+* __Messaging__ : NATS (Network Address Translation) Messaging Bus
+* __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
 ## Ch5 - Installing and Configuring Cloud Foundry
