@@ -1,6 +1,6 @@
 Cloud Foundry The Definitive Guide - *Translation to Korean*
 
-[_Ch 1 - The Cloud-Native Platform_](_Ch -1-The-Cloud-Native-Platform_)
+[_Ch 1 - The Cloud-Native Platform_](#_Ch -1-The-Cloud-Native-Platform_)
 
 
 # _Ch 1 - The Cloud-Native Platform_
