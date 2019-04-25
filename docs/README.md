@@ -112,25 +112,26 @@
 * __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
-1. CF 설치 전, 이해하고 있어야 하는 내용
-    - Installation steps
-    - Non-technical considerations
-    - Cloud Foundry dependencies and integrations
-    - IaaS and infrastructure design
-    - Networking design and routing
-2. Installation Steps
-    1. IaaS 환경 생성 (create) 및 설정 (configure) :  networks, security groups, blobstores, load  balancers
+> CF 설치 전, 이해하고 있어야 하는 내용
+<code>
+- Installation steps
+- Non-technical considerations
+- Cloud Foundry dependencies and integrations
+- IaaS and infrastructure design
+- Networking design and routing
+</code>
+1. Installation Steps
+    1. IaaS 환경 생성 (create) 및 설정 (configure) :  networks, security groups, blobstores, load balancers
     2. 외부기업용서비스 설정 : LDAP, syslog endpoints or monitoring, metrics dashboards
     3. BOSH Director 배포하기
     4. IaaS/Infrastructe 관련한 BOSH configuration 생성 (create) : 즉, Cloud Configuration 생성
     5. Deployment manifest 생성 : CF를 배포하기 위함
     6. CF와 필요한 기업서비스들을 통합하기 : deployment manifest 를 가지고 함
     7. Cloud Foundry 배포하기
-3. Non-technical Considerations
-"""
-    - The Team structure required for installing Cloud Foundry
-    - The required deployment topology of Cloud Foundry
-"""
+2. Non-technical Considerations
+    > - The Team structure required for installing Cloud Foundry
+    > - The required deployment topology of Cloud Foundry
+
     1. Team Structure: Platform Operations for the  Enterprise
         - 위 두가지항목은 대기업에서 꼭 고려해야할 사항이다
         - CF배포는 비즈니스 단위별로 하나씩 배포 또는 DevOps 중심의 팀이 사용할 수 있는 중앙플랫폼으로서 배포
@@ -145,10 +146,9 @@
             * QA and performance testing
             * Release management
             * Project management
-    2. Deployment Topology
-    """ 
-    How many Cloud Foundry instances should you deploy? 
-    """
+    2. Deployment Topology 
+    > How many Cloud Foundry instances should you deploy? 
+        
         - A number of factors to consider when addressing this question
             * 전체회사당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
             * 해당 문단 다시 읽어보기
@@ -168,9 +168,8 @@
             * System monitoring and metrics dashboards (DataDog) set up to receive system metrics
             * Application performance management (APM) tool (Dynatrace, NewRelic, AppDynamics) set up for receiving application metrics) 
 5. IaaS and Infrastructure design
-"""
-Through the use of the BOSH release tool chain, Cloud Foundry is designed to run on any IaaS provider that has a supported CPI
-"""
+> Through the use of the BOSH release tool chain, Cloud Foundry is designed to run on any IaaS provider that has a supported CPI
+
     - BOSH CPIs for the following infrastructures:
         * GCP
         * AWS
@@ -238,12 +237,12 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
         * https://github.com/cloudfoundry-community/jumpbox-boshrelease
         * 요놈을 사용하면 jumbox에 ssh 로 접속하지 않고, SOCKS5 프로토콜을 통해 나의 workstation 의 로컬포트를 통해서 CLI 를 실행할 수 있음. (???
 6. Networking design and routing
-"""
-본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요
-"""
-        * 
-        * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
-        * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
+> 본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
+
+    * 
+    * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
+    * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
+
     - Using Static IPs
         * Cloud Foundry components = instance groups: BOSH 세계에서는 instance groups 라고 칭함)
             * 이 녀석들은 static IP 가 필요하거나 DNS 가 필요함. 아래와 같은 놈들임.
