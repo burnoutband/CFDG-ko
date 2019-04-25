@@ -85,7 +85,7 @@
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
 #### Infrastructure and Cloud Provider Interface
-* **CF 설치 전에 셋팅 해야하는 내용**
+* __CF 설치 전에 셋팅 해야하는 내용__
     > + Networks and subnets (typically a /22 private network)
     > + VMs with specified CPU and memory requirements
     > + Storage for VMs
