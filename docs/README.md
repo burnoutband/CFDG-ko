@@ -146,11 +146,11 @@
             * QA and performance testing
             * Release management
             * Project management
-    2. Deployment Topology 
-        > How many Cloud Foundry instances should you deploy? 
+    2. Deployment Topology
+        > * How many Cloud Foundry instances should you deploy? 
         
     - A number of factors to consider when addressing this question
-        * 전체회사당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
+        * 전체회사 당 하나의 인스턴스가 필요? 또는 Organization 당 하나의 인스턴스가 필요?
         * 해당 문단 다시 읽어보기
 4. Cloud Foundry dependencies and integrations
     * CF dependencies
