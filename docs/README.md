@@ -133,7 +133,7 @@
 > - The Team structure required for installing Cloud Foundry
 > - The required deployment topology of Cloud Foundry
 
-#### Team Structure: Platform Operations for the  Enterprise
+> #### Team Structure: Platform Operations for the  Enterprise
 - 위 두가지항목은 대기업에서 꼭 고려해야할 사항이다
 - CF배포는 비즈니스 단위별로 하나씩 배포 또는 DevOps 중심의 팀이 사용할 수 있는 중앙플랫폼으로서 배포
 - 대부분의 기업들은 Centralized Platform Operations team을 구성한다
@@ -148,7 +148,7 @@
     * Release management
     * Project management
     
-#### Deployment Topology
+> #### Deployment Topology
 > * How many Cloud Foundry instances should you deploy? 
 
 * A number of factors to consider when addressing this question
@@ -185,12 +185,12 @@
     * RackHD
     * Your local machine (for deploying BOSH Lite)
 
-#### Designing for Resilience
+> #### Designing for Resilience
 * HA를 위해서 AZs 를 사용하고 싶으면, 최소 3개의 AZs가 필요함 (By Raft consensus algorithm)
 * Cloud Foundry deployment 예제를 위해서 Bosh-Bootloader 와 CF deployment를 사용
 * bosh-bootloader는 사용자를 대신해서 infrastructure를 구성하고 자동으로 3개의 AZs를 설정한다
 
-#### Sizing and Scoping the Infrastructure
+> #### Sizing and Scoping the Infrastructure
 > * 
 > * Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
 > * 명확한 Sizing 보다는 Scoping 하는 걸 추천함
@@ -226,7 +226,7 @@
     + GoRouter 경우, application traffic의 크리티컬 패쓰임. 그래서 AZ 당 2개 를 고려할 필요있음
         - 만약에 하나의 AZ이 go offline 한다면, 발생하는 Peak traffic을 처리해야함.
          
-#### Setting Up an AWS VPC
+> #### Setting Up an AWS VPC
 * VPC 셋팅 전 필요한 것
     + CF 설치에 필요한 최소 리소스를 수용할 수 있는 AWS 계정
     + 적절한 Region (예: US-west)
@@ -241,7 +241,7 @@
     + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야
         - 
 
-#### Jumpbox
+> #### Jumpbox
 * https://github.com/cloudfoundry-community/jumpbox-boshrelease
 * 요놈을 사용하면 jumbox에 ssh 로 접속하지 않고, SOCKS5 프로토콜을 통해 나의 workstation 의 로컬포트를 통해서 CLI 를 실행할 수 있음. (???
 
@@ -252,7 +252,7 @@
 * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
 * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
 
-#### Using Static IPs
+> #### Using Static IPs
 * Cloud Foundry components = instance groups: BOSH 세계에서는 instance groups 라고 칭함)
     + 이 녀석들은 static IP 가 필요하거나 DNS 가 필요함. 아래와 같은 놈들임.
         - Load balancer (static IP for HAProxy, VIP for F5, etc.)
@@ -271,7 +271,7 @@
         - etcd
     + 정리: CF components 는 외부DNS resolution (IP정보획득)을 통해 접근하거나, Consul을 통한 내부 DNS resolution 을 통해 접근할 수 있다. 
 
-#### Subnets
+> #### Subnets
 * public subnet 경우 -> NAT 없는 Internet GW 가 필요
     * 모든 VM 은 public IP 가 필요하게 됨. (인터넷 접근이 필요한 VM 경우)
 * private subnet 경우 -> NAT gateway 또는 NAT Instance 가 필요
@@ -282,9 +282,9 @@
     * IPSec 을 사용하지 않는 서비스들을 위한 전용 서브넷 (dedicated subnet for services without using IPSec)
     * 
 
-#### Security Groups
-#### Setting Up the Load Balancer
-#### Setting Up Domains and Certificates
+> #### Security Groups
+> #### Setting Up the Load Balancer
+> #### Setting Up Domains and Certificates
 * CF 는 기본도메인으로 Registered  wild card domain 이 필요
 * SSL certificate 하고 Cloud Controller 를 설정할 때 위 도메인이 필요
     + In AWS, Server Certificate 생성하기
