@@ -107,7 +107,7 @@
 * __Routing__ : GoRouter, TCPRouter, and external load balancer
 * __Authentication__ and user management :  User Access and Authentication Management
 * __Application__ life cycle and system state : Cloud Controller, Diego's core components (e.g., BBS and Brain)
-* __App__ storage and execution : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
+* __App storage and execution__ : blobstore (including app artifacts/droplets and the Application Life-Cycle Binaries), Diego Cell (Garden, and runC)
 * __Services__ : Service Brokers, User Provided Service)
 * __Messaging__ : NATS (Network Address Translation) Messaging Bus
 * __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
