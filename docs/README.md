@@ -113,13 +113,11 @@
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
 > CF 설치 전, 이해하고 있어야 하는 내용
-<code>
-- Installation steps
-- Non-technical considerations
-- Cloud Foundry dependencies and integrations
-- IaaS and infrastructure design
-- Networking design and routing
-</code>
+    + Installation steps
+    + Non-technical considerations
+    + Cloud Foundry dependencies and integrations
+    + IaaS and infrastructure design
+    + Networking design and routing
 1. Installation Steps
     1. IaaS 환경 생성 (create) 및 설정 (configure) :  networks, security groups, blobstores, load balancers
     2. 외부기업용서비스 설정 : LDAP, syslog endpoints or monitoring, metrics dashboards
