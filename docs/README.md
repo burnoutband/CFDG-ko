@@ -256,7 +256,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 ## Networking design and routing
 본인의 Data Center 내의 IP 와 Cloud Foundry에서 예약되어 있는 IP 와 충돌을 피해야하는 점이 중요  
 
-* 
+* <img src="../images/NetworkDependencies.png" width="500">  
 * Best Practice:  Cloud Foundry와 분리된 네트워크에 서비스들을 함께 배치하고 이 두 세그먼트간에 양방향 통신을 허용하는 것이 쵝오
 * App Request Flow - https://blog.altoros.com/cloud-foundry-security-achieving-pci-dss-compliance.html
 
@@ -288,7 +288,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     * Core Cloud Foundry Components 를 위한 전용 서브넷 (dedicated subnet)
     * IPSec 사용을 필요로 하는 서비스들을 위한 전용 IPSec 서브넷 (dedicated Internet Protocol security subnet)
     * IPSec 을 사용하지 않는 서비스들을 위한 전용 서브넷 (dedicated subnet for services without using IPSec)
-    * 
+    * <img src="../images/Figure4-3.png" width="600">  
 
 ### Security Groups
 
