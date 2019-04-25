@@ -191,7 +191,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * bosh-bootloader는 사용자를 대신해서 infrastructure를 구성하고 자동으로 3개의 AZs를 설정한다
 
 > ### Sizing and Scoping the Infrastructure
-```
+
 + Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
 + 명확한 Sizing 보다는 Scoping 하는 걸 추천함
 + 인프라 구성과 사이징을 위한 참고자료
