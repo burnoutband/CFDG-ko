@@ -1,22 +1,22 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
-## Ch 1 - The Cloud-Native Platform
-## Ch 2 - Concepts
-## Ch 3 - Components
+# Ch 1 - The Cloud-Native Platform
+# Ch 2 - Concepts
+# Ch 3 - Components
 
-### User Management and UAA
+## User Management and UAA
 
-### The Cloud Controller
+## The Cloud Controller
 
-> #### System State
+> ### System State
 
-> #### The Cloud Controller Blobstore
+> ### The Cloud Controller Blobstore
 
-### The CCDB
+## The CCDB
 
-### The Application Life-Cycle Policy
+## The Application Life-Cycle Policy
 
-### Continuous Delivery Pipelines
+## Continuous Delivery Pipelines
 * Concourse.ci
 
 ###  Application Execution
