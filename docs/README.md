@@ -86,7 +86,7 @@
 
 
 #### Infrastructure and Cloud Provider Interface
-* __CF 설치 전에 셋팅 해야하는 내용__
+* __CF 설치 전에 셋팅 해야하는 내용__  
     > * Networks and subnets (typically a /22 private network)
     > * VMs with specified CPU and memory requirements
     > * Storage for VMs
