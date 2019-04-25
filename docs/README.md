@@ -47,16 +47,16 @@
 ### Messaging
 ### Additional Components
 #### Stacks
-1. prebuilt root filesystem (rootfs)
-2. 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
-3. 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
+- prebuilt root filesystem (rootfs)
+- 스택은 droplet과 함께 사용된다 (droplet: the output of buildpack staging)
+- 스택은 애플리케이션 실행을 위해 사용되는 container filesystem을 제공함
 
 #### A marketplace of On-Demand Services
-1. CF는 마켓플레이스 개념을 가지고 있다
-2. 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
-3. CF marketplace는 플랫폼 확장 포인트이다
+- CF는 마켓플레이스 개념을 가지고 있다
+- 애플리케이션은 자주 외부 서비스에 의지한다 (databases, caches, messaging engines, third-party APIs)
+- CF marketplace는 플랫폼 확장 포인트이다
     1. 개발자들은 실행중인 애플리케이션을 지원하기 위해 서비스들을 마켓플레이스에서 사용할 수 있다
-4. 플랫폼 운영자는 service brokers, route services user-provided services 를 통해서 추가적인 서비스들을 마켓플레이스에 추가할 수 있다
+- 플랫폼 운영자는 service brokers, route services user-provided services 를 통해서 추가적인 서비스들을 마켓플레이스에 추가할 수 있다
     1. 마켓플레이스는 CF 사용자에게 셀프서비스, 추가 서비스 인스턴스의 주문형 프로비저닝을 제공한다
     2. 서비스 개발자는 마켓플레이스에 플랫폼에서 실행할 수 있는 어떤 애플리케이션을 서비스 형태로 노출할 수 있다
 - Service brokers
