@@ -374,19 +374,23 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
         * BOSH Director 셋업하기 위해 BOSH CLI 를 사용
         * 사용 전에 확인필요 사항
             1. 디렉토리 생성 및 이동하기
-                * $ mkdir bosh-bootloader; cd bosh-bootloader
+                `$ mkdir bosh-bootloader; cd bosh-bootloader`
             2. 최신 안정 버전의 release 를 다운로드하고 release 를  PATH 에 존재하는 디렉토리에 추가하기
+            ```
                 * $ wget https://github.com/cloudfoundry/bosh-bootloader/releases/download/v2.3.0/bbl-v2.3.0_osx 
                 * $ chmod +x bbl-v2.3.0_osx 
                 * $ mv bbl-v2.3.0_osx /usr/local/bin/bbl
+            ```
             3. AWS user에 inline policy를 추가하기
             4. 필요한 환경변수들을 export 하기
+            ```
                 * $ export BBL_AWS_ACCESS_KEY_ID=<YOUR ACCESS KEY>
                 * $ export BBL_AWS_SECRET_ACCESS_KEY=<YOUR SECRET KEY> 
                 * $ export BBL_AWS_REGION=<YOUR AWS DEPLOYMENT REGION>
+            ```
         * 본격적으로 Bosh-bootloader 사용하기
             1. AWS VPC 셋업 및 BOSH Director 배포하기
-                * $ bbl up
+                * `$ bbl up`
                 * BOSH 최신 버전 사용하는지 항상 확인하고 BOSH environment를 업데이트하는 걸 추천 (여기서는 BOSH 2.0)
             2. Director IP, ca-cert, username and password를  bbl CLI 로 부터 가져온다. 그리고 BOSH Director 에 log in 하기
                 * BOSH v2 CLI 는 HTTPS 로 Director에  연결하기 때문에 ca-cert 가 필요함.
@@ -411,30 +415,30 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
                 * BOSH 에 처음 log in 할 때 credentials 제공하면 된다.
                 * bbl 쿼리 명령이 작동하려면 bbl-state.json 파일과 동일한 디렉토리에 있어야함. bbl-state.json은 bbl up 을 처음 실행한 디렉토리에 생성됨.
             3. ELB 생성하기 (with key and certificate)
-                * $ bbl create-lbs --type cf --cert <YOUR-cert.pem> --key <YOUR-KEY.pem>
+                * `$ bbl create-lbs --type cf --cert <YOUR-cert.pem> --key <YOUR-KEY.pem>`
                 * cf-deployment는 소프트웨어 패키지 세트이고, git repository 에서 가져올 수 있다. 그리고, 이 패키지들은 BOSH deployment process 의 일부분으로써, 소스로부터 자동으로 컴파일된다. BOSH 는 배포 프로세스의 일부로 패키지들을 컴파일하기 위해 분리된, 임시 VM 들을 마련하고 후속 배포를 위해 자동으로 결과를 저장한다. 이런 vm을 Compilation VM 이라고 한다.
                 * cloud foundry 설치시작 전에 BOSH v2 CLI 최신버전인지를 체크하자 - http://bosh.io 
             4. Stemcell 업로드하기
                 * BOSH는 All OS dependencies 를 하나의 image 로 캡쳐하는 방법을 제공. 이 이미지를 stemcell 이라고 함.
                 * Stemcell 업로드 하기 (각자의 IaaS 환경에 맞춰)
-                    1. $ bosh -e my-bosh upload-stemcell \ https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+                    `$ bosh -e my-bosh upload-stemcell \ https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-go_agent`
             5. Cloud Foundry 배포 (deploy) 하기
                 * cf-deployment git repo에서 CF 배포를 위한 표준 manifest를 얻을 수 있다. 이걸 활용.
-                * $ bosh -e my-env -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=<YOUR-CFDomain.com>
+                * `$ bosh -e my-env -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=<YOUR-CFDomain.com>`
                 * cf-deployment.yml 은 2가지 파라미터 를 더 사용한다.
                     * System domain: 특정환경 관련 데이터이쥬
                     * 민감한 설정 정보 (credentials)
                         * Optioin filelds 를 사용하여 모든 다른 설정들을 전파해야함 (cf-deployment 참고)
-                    * 이 데이터 세트를 가져 오기 위해 BOSH CLI는 현재 --vars-store 플래그를 사용합니다. 이 플래그는 .yml 파일을 읽고 해당 파일에있는 값을 추출하여 cf-deployment가 나타내는 템플릿을 채 웁니다. BOSH v2 CLI는 cf-deployment 매니페스트를 채우는 데 필요한 모든 변수가 포함 된이 .yml 파일을 생성합니다. 이전 예제의 명령에서 --vars-store env-repo/deployment-vars.yml -v system_domain = $ SYSTEM_DOMAIN은 Cloud Foundry 시스템 도메인과 같은 사용자 정의 변수를 기반으로 deployment-vars.yml 파일을 생성합니다. 프로덕션 배포의 경우 var-store 대신 config-server를 사용해야합니다.
+                    * 이 데이터 세트를 가져 오기 위해 BOSH CLI는 현재 `--vars-store` 플래그를 사용합니다. 이 플래그는 .yml 파일을 읽고 해당 파일에있는 값을 추출하여 cf-deployment가 나타내는 템플릿을 채 웁니다. BOSH v2 CLI는 cf-deployment 매니페스트를 채우는 데 필요한 모든 변수가 포함 된이 .yml 파일을 생성합니다. 이전 예제의 명령에서 `--vars-store env-repo/deployment-vars.yml -v system_domain = $ SYSTEM_DOMAIN` 은 Cloud Foundry 시스템 도메인과 같은 사용자 정의 변수를 기반으로 deployment-vars.yml 파일을 생성합니다. 프로덕션 배포의 경우 var-store 대신 config-server를 사용해야합니다.
                 *  
             6. 배포된 환경 체크하기
-                * $ bosh instances —ps #view everything deployed
+                * `$ bosh instances —ps` #view everything deployed
                 * Route53 같은 곳에 도메인네임 등록했는지 꼭 확인하자
                 * 
             7. Target the cf api domain and log in
-                * $ cf api api.<YOUR-CFDomain.com> —skip-ssl-validation
+                * `$ cf api api.<YOUR-CFDomain.com> —skip-ssl-validation`
             8. 로그인 하기 (via cf login)
-                * cf login 
+                * `cf login`
                 * 어드민 username 과 password 를 위해 아래 값을 사용해주오. (From deployment-vars.yml)
                     * user:
                 * Pull uaa_scim_users_admin_name out of deployment-vars. 
@@ -445,9 +449,9 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
                 * Stack
                     * a prebuilt roofs (to provide the container filesystem used for running applications)
                 * Command to check fs
-                    * $ cf stacks
+                    * `$ cf stacks`
                 * Changing a stack and restate an application
-                    * $ cf push APPNAME -s STACKNAME
+                    * `$ cf push APPNAME -s STACKNAME`
             10. Growing the Platform
                     * Rolling upgrade를 수행하기 위해 Bosh 사용해서 cloud foundry를 재배포한다. (Redeploy)
             11. Validating Platform Integrity in Production 
@@ -493,21 +497,29 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
                         1. 큰 조직은 Two-pizza teams 으로 쪼갬. 각각 피자 팀에 Space 할당. 이 팀들은 보통 마이크로 서비스 같은 격리된 컴포넌트를 개발함.
                         2. Pipeline 통해서 배포할 때, Dev space, Test space, Production space 로 나누어 구성하면 유용함.
                     9. 기본 Org 사용 및 Space  만들기 그리고 타겟팅하기
-                        * $ cf create-space developer
-                        * $ cf target -o “default_org” -s “developer” (developer space 타겟팅)
+                        ```
+                        $ cf create-space developer
+                        $ cf target -o “default_org” -s “developer” (developer space 타겟팅)
+                        ```
             16. Pushing Your First App
                 1. 샘플 애플리케이션 다운로드
+                ```
                     * $ git clone https://github.com/scottfrederick/spring-music 
                     * $ cd spring-music
+                ```
                 2. (아규먼트 관리 방법관련) 이 샘플은 App manifest 를 포함하고 있음. App manifest는 필요한 command line arguments 그리고 application metadata 를 정의!! 이건 앱 배포시 중요함. App manifest 안 쓰고, command line arguments 로 넘길 수 도 있음.
+                ```
                     1. --- applications: 
                     2. - name: spring-music 
                         1. memory: 1G 
                         2. random-route: true 
                         3. path: build/libs/spring-music.jar
+                ```
                 3. Compile Code and cf push
+                ```
                     * $ ./gradlew assemble 
                     * $ cf push (이거 수행하면 배포된 앱에 접근할 수 있는 URL 이 반환됨)
+                ```
 * Summary
     * cf-deployment 와 bosh-bootloader 를 사용해서 Cloud Foundry Installation을 수행했음. 
         * 내가 지금까지 수행했던 내용
