@@ -509,11 +509,11 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
                     ```
                 2. (아규먼트 관리 방법관련) 이 샘플은 App manifest 를 포함하고 있음. App manifest는 필요한 command line arguments 그리고 application metadata 를 정의!! 이건 앱 배포시 중요함. App manifest 안 쓰고, command line arguments 로 넘길 수 도 있음.
                     ```
-                    1. --- applications: 
-                    2. - name: spring-music 
-                        1. memory: 1G 
-                        2. random-route: true 
-                        3. path: build/libs/spring-music.jar
+                    --- applications: 
+                    - name: spring-music 
+                      memory: 1G 
+                      random-route: true 
+                      path: build/libs/spring-music.jar
                     ```
                 3. Compile Code and cf push
                     ```
