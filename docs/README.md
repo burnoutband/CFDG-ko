@@ -3,6 +3,9 @@
 # Ch 1 - The Cloud-Native Platform
 # Ch 2 - Concepts
 # Ch 3 - Components
+## Components Overview
+
+## Routing via the Load Balancer and GoRouter
 
 ## User Management and UAA
 
@@ -12,21 +15,21 @@
 
 > ### The Cloud Controller Blobstore
 
-## The CCDB
+* The CCDB
 
-## The Application Life-Cycle Policy
+* The Application Life-Cycle Policy
 
-## Continuous Delivery Pipelines
-* Concourse.ci
+* Continuous Delivery Pipelines
+    + Concourse.ci
 
 ##  Application Execution
 * application 실행 과 task 실행을 담당하는 구성요소 = Diego, Garden , runC
 
-##  Diego
+###  Diego
 * the Container runtime architecture for CF
 * provides the scheduling, orchestration, and placement of application and tasks
 
-##  Garden and runC
+###  Garden and runC
 1. Garden (a container management API: Go로 작성됨)
 2. runC (OCI compatible backend container implementation)
     - Docker 같은 container runtime 임
@@ -34,12 +37,12 @@
         + https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
 
 ## Metrics and Logging
-## Metron Agent
+### Metron Agent
 - Cell로부터 application logs 를 모은다 (gathering)
     * Cell = CF Diego host
 - application logs 와 component metrics를 Loggregator subsystem으로 포워딩한다 (forwarding)
 
-## Loggregator (log aggregator)
+### Loggregator (log aggregator)
 - Firehose
     1. 파이어호스를 통해서 application logs, container metrics (memory, CPU, and disk-per-app instance), component counter/HTTP events 에 접근할 수 있음 (component logs 는 제공안함)
     2. Component logs는 rsyslog drain 을 통해서 검색할 수 있음
