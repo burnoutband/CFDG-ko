@@ -391,21 +391,23 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
             2. Director IP, ca-cert, username and password를  bbl CLI 로 부터 가져온다. 그리고 BOSH Director 에 log in 하기
                 * BOSH v2 CLI 는 HTTPS 로 Director에  연결하기 때문에 ca-cert 가 필요함.
                 * 일반적으로 BOSH environment (Director IP address) 에 별명 (alias) 을 붙여 log in 한다.
-                    <pre><code>
+                    ```
                     $ bosh alias-env my-bosh -e <YOUR-BOSH-IP> Using environment '<YOUR-BOSH-IP>' as user 'user-********'
                     $ bosh -e my-bosh --ca-cert <(bbl director-ca-cert) \ login --user $(bbl director-username) --password $(bbl director-password)
-                    </pre></code>
+                    ```
                 * 또는 환경변수 이용한 방법도 있음
-                    * $ export BOSH_CLIENT=$(bbl director-username) 
-                    * $ export BOSH_CLIENT_SECRET=$(bbl director-password) 
-                    * $ export BOSH_ENVIRONMENT=$(bbl director-address) 
-                    * $ export BOSH_CA_CERT=$(bbl director-ca-cert) 
-                    * 
-                    * # check if the above environment is set up correctly 
-                    * $ $ bosh env 
-                    * 
-                    * # At this point you can login to your BOSH Director 
-                    * $ bosh login
+                    ```
+                    $ export BOSH_CLIENT=$(bbl director-username) 
+                    $ export BOSH_CLIENT_SECRET=$(bbl director-password) 
+                    $ export BOSH_ENVIRONMENT=$(bbl director-address) 
+                    $ export BOSH_CA_CERT=$(bbl director-ca-cert) 
+                    
+                    # check if the above environment is set up correctly 
+                    $ $ bosh env 
+                    
+                    # At this point you can login to your BOSH Director 
+                    $ bosh login
+                    ```
                 * BOSH 에 처음 log in 할 때 credentials 제공하면 된다.
                 * bbl 쿼리 명령이 작동하려면 bbl-state.json 파일과 동일한 디렉토리에 있어야함. bbl-state.json은 bbl up 을 처음 실행한 디렉토리에 생성됨.
             3. ELB 생성하기 (with key and certificate)
