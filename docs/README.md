@@ -376,18 +376,18 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
             1. 디렉토리 생성 및 이동하기
                 `$ mkdir bosh-bootloader; cd bosh-bootloader`
             2. 최신 안정 버전의 release 를 다운로드하고 release 를  PATH 에 존재하는 디렉토리에 추가하기
-            ```
-                * $ wget https://github.com/cloudfoundry/bosh-bootloader/releases/download/v2.3.0/bbl-v2.3.0_osx 
-                * $ chmod +x bbl-v2.3.0_osx 
-                * $ mv bbl-v2.3.0_osx /usr/local/bin/bbl
-            ```
+                ```
+                $ wget https://github.com/cloudfoundry/bosh-bootloader/releases/download/v2.3.0/bbl-v2.3.0_osx 
+                $ chmod +x bbl-v2.3.0_osx 
+                $ mv bbl-v2.3.0_osx /usr/local/bin/bbl
+                ```
             3. AWS user에 inline policy를 추가하기
             4. 필요한 환경변수들을 export 하기
-            ```
-                * $ export BBL_AWS_ACCESS_KEY_ID=<YOUR ACCESS KEY>
-                * $ export BBL_AWS_SECRET_ACCESS_KEY=<YOUR SECRET KEY> 
-                * $ export BBL_AWS_REGION=<YOUR AWS DEPLOYMENT REGION>
-            ```
+                ```
+                $ export BBL_AWS_ACCESS_KEY_ID=<YOUR ACCESS KEY>
+                $ export BBL_AWS_SECRET_ACCESS_KEY=<YOUR SECRET KEY> 
+                $ export BBL_AWS_REGION=<YOUR AWS DEPLOYMENT REGION>
+                ```
         * 본격적으로 Bosh-bootloader 사용하기
             1. AWS VPC 셋업 및 BOSH Director 배포하기
                 * `$ bbl up`
@@ -503,23 +503,23 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
                         ```
             16. Pushing Your First App
                 1. 샘플 애플리케이션 다운로드
-                ```
-                    * $ git clone https://github.com/scottfrederick/spring-music 
-                    * $ cd spring-music
-                ```
+                    ```
+                    $ git clone https://github.com/scottfrederick/spring-music 
+                    $ cd spring-music
+                    ```
                 2. (아규먼트 관리 방법관련) 이 샘플은 App manifest 를 포함하고 있음. App manifest는 필요한 command line arguments 그리고 application metadata 를 정의!! 이건 앱 배포시 중요함. App manifest 안 쓰고, command line arguments 로 넘길 수 도 있음.
-                ```
+                    ```
                     1. --- applications: 
                     2. - name: spring-music 
                         1. memory: 1G 
                         2. random-route: true 
                         3. path: build/libs/spring-music.jar
-                ```
+                    ```
                 3. Compile Code and cf push
-                ```
-                    * $ ./gradlew assemble 
-                    * $ cf push (이거 수행하면 배포된 앱에 접근할 수 있는 URL 이 반환됨)
-                ```
+                    ```
+                    $ ./gradlew assemble 
+                    $ cf push (이거 수행하면 배포된 앱에 접근할 수 있는 URL 이 반환됨)
+                    ```
 * Summary
     * cf-deployment 와 bosh-bootloader 를 사용해서 Cloud Foundry Installation을 수행했음. 
         * 내가 지금까지 수행했던 내용
