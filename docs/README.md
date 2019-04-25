@@ -334,6 +334,189 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 # _Ch5 - Installing and Configuring Cloud Foundry_
+CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
+
+* Cloud Foundry 셋업의 주요 관심사와 결정사항
+    * Using bosh-bootloader (bosh-bootloader 사용하기)
+    * Installing Cloud Foundry (CF 설치하기)
+    * Growing the platform (플랫폼 키우기)
+    * Validating platform integrity in production (PROD에서 플랫폼 무결성 검증하기)
+    * Logical environment structure (Orgs and Spaces) (논리적 환경구조)
+    * Deploying an application (앱 배포하기)
+* CF 구성요소 와 CF's release-engineering tool chain, BOSH (a recursive acronym meaning BOSH outer shell) 에 익숙하다고 가정.
+* Canonical approach to bootstrapping Cloud Foundry (CF 부트스트래핑에 대한 표준 접근법)
+    * 최근까지 CF 설치, Bosh에 대한 설치 및 실행에 대한 표준방법이 없었음
+    * 다양한 오픈소스 방법이 있음
+        * StrarkandWayne’s genesis: https://github.com/starkandwayne/genesis
+    * Cloud foundry community에서 최근에 표준을 추가함
+    * 
+* Installation Steps
+    * CF 설치 전제조건 (prerequisites for installing CF)
+        1. IaaS 환경 생성 및 설정 (networks, security groups, blobstores and load balancers 포함) : bosh-bootloader이용방법이 표준방법.
+        2. 필수외부 디펜던시 마련 (LDAP, syslog endpoints, monitoring and metrics dashboards)
+    * 설치단계
+        1. BOSH Director 배포하기 : Deploy the BOSH Director 
+        2. IaaS/인프라에 특정한 BOSH 환경설정 생성하기 (such as cloud configuration) : Create an IaaS/infrastruture-specific BOSH configuration such as cloud configuration
+        3. Deployment manifest 생성하기 : Create a deployment manifest to deploy Cloud Foundry
+        4. 필요한 기업서비스와 cf 통합하기 : Intergrate Cloud Foundry with the required enterprise services (via the deployment manifest)
+        5. Cloud Foundry 배포하기 : Deploy Cloud Foundry
+* Installing Cloud Foundry
+    * CF 설치를 위해서 Infrastructure (AWS) 와 BOSH Director가 필요
+        * 위 두 가지 관심사항을 bosh-bootloader 를 통해서 시작 (bootstrap) 한다
+    * 하나의 BOSH environment 는 Director 와 deployments 로 구성된다.
+    * Director VM 은 필요한 모든 BOSH 컴포넌트를 포함하고 있음.
+    * Director 시동걸기 : BOSH CLI 를 이용.
+        * bosh create-env (명령어임)
+        * 여전히 vac, subnets, security groups, ELB, databases, blobstores 등을 프로비저닝할 일들이 남아있다
+    * Bosh-bootloader
+        * bosh-bootloader 로 BOSH 와 필요한 IaaS 환경을 설치한다.
+        * A command-line utility (for setting up CF and Concouse on an IaaS)
+        * BOSH Director 셋업하기 위해 BOSH CLI 를 사용
+        * 사용 전에 확인필요 사항
+            1. 디렉토리 생성 및 이동하기
+                * $ mkdir bosh-bootloader; cd bosh-bootloader
+            2. 최신 안정 버전의 release 를 다운로드하고 release 를  PATH 에 존재하는 디렉토리에 추가하기
+                * $ wget https://github.com/cloudfoundry/bosh-bootloader/releases/download/v2.3.0/bbl-v2.3.0_osx 
+                * $ chmod +x bbl-v2.3.0_osx 
+                * $ mv bbl-v2.3.0_osx /usr/local/bin/bbl
+            3. AWS user에 inline policy를 추가하기
+            4. 필요한 환경변수들을 export 하기
+                * $ export BBL_AWS_ACCESS_KEY_ID=<YOUR ACCESS KEY>
+                * $ export BBL_AWS_SECRET_ACCESS_KEY=<YOUR SECRET KEY> 
+                * $ export BBL_AWS_REGION=<YOUR AWS DEPLOYMENT REGION>
+        * 본격적으로 Bosh-bootloader 사용하기
+            1. AWS VPC 셋업 및 BOSH Director 배포하기
+                * $ bbl up
+                * BOSH 최신 버전 사용하는지 항상 확인하고 BOSH environment를 업데이트하는 걸 추천 (여기서는 BOSH 2.0)
+            2. Director IP, ca-cert, username and password를  bbl CLI 로 부터 가져온다. 그리고 BOSH Director 에 log in 하기
+                * BOSH v2 CLI 는 HTTPS 로 Director에  연결하기 때문에 ca-cert 가 필요함.
+                * 일반적으로 BOSH environment (Director IP address) 에 별명 (alias) 을 붙여 log in 한다.
+                    <pre><code>
+                    $ bosh alias-env my-bosh -e <YOUR-BOSH-IP> Using environment '<YOUR-BOSH-IP>' as user 'user-********'
+                    $ bosh -e my-bosh --ca-cert <(bbl director-ca-cert) \ login --user $(bbl director-username) --password $(bbl director-password)
+                    </pre></code>
+                * 또는 환경변수 이용한 방법도 있음
+                    * $ export BOSH_CLIENT=$(bbl director-username) 
+                    * $ export BOSH_CLIENT_SECRET=$(bbl director-password) 
+                    * $ export BOSH_ENVIRONMENT=$(bbl director-address) 
+                    * $ export BOSH_CA_CERT=$(bbl director-ca-cert) 
+                    * 
+                    * # check if the above environment is set up correctly 
+                    * $ $ bosh env 
+                    * 
+                    * # At this point you can login to your BOSH Director 
+                    * $ bosh login
+                * BOSH 에 처음 log in 할 때 credentials 제공하면 된다.
+                * bbl 쿼리 명령이 작동하려면 bbl-state.json 파일과 동일한 디렉토리에 있어야함. bbl-state.json은 bbl up 을 처음 실행한 디렉토리에 생성됨.
+            3. ELB 생성하기 (with key and certificate)
+                * $ bbl create-lbs --type cf --cert <YOUR-cert.pem> --key <YOUR-KEY.pem>
+                * cf-deployment는 소프트웨어 패키지 세트이고, git repository 에서 가져올 수 있다. 그리고, 이 패키지들은 BOSH deployment process 의 일부분으로써, 소스로부터 자동으로 컴파일된다. BOSH 는 배포 프로세스의 일부로 패키지들을 컴파일하기 위해 분리된, 임시 VM 들을 마련하고 후속 배포를 위해 자동으로 결과를 저장한다. 이런 vm을 Compilation VM 이라고 한다.
+                * cloud foundry 설치시작 전에 BOSH v2 CLI 최신버전인지를 체크하자 - http://bosh.io 
+            4. Stemcell 업로드하기
+                * BOSH는 All OS dependencies 를 하나의 image 로 캡쳐하는 방법을 제공. 이 이미지를 stemcell 이라고 함.
+                * Stemcell 업로드 하기 (각자의 IaaS 환경에 맞춰)
+                    1. $ bosh -e my-bosh upload-stemcell \ https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+            5. Cloud Foundry 배포 (deploy) 하기
+                * cf-deployment git repo에서 CF 배포를 위한 표준 manifest를 얻을 수 있다. 이걸 활용.
+                * $ bosh -e my-env -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=<YOUR-CFDomain.com>
+                * cf-deployment.yml 은 2가지 파라미터 를 더 사용한다.
+                    * System domain: 특정환경 관련 데이터이쥬
+                    * 민감한 설정 정보 (credentials)
+                        * Optioin filelds 를 사용하여 모든 다른 설정들을 전파해야함 (cf-deployment 참고)
+                    * 이 데이터 세트를 가져 오기 위해 BOSH CLI는 현재 --vars-store 플래그를 사용합니다. 이 플래그는 .yml 파일을 읽고 해당 파일에있는 값을 추출하여 cf-deployment가 나타내는 템플릿을 채 웁니다. BOSH v2 CLI는 cf-deployment 매니페스트를 채우는 데 필요한 모든 변수가 포함 된이 .yml 파일을 생성합니다. 이전 예제의 명령에서 --vars-store env-repo/deployment-vars.yml -v system_domain = $ SYSTEM_DOMAIN은 Cloud Foundry 시스템 도메인과 같은 사용자 정의 변수를 기반으로 deployment-vars.yml 파일을 생성합니다. 프로덕션 배포의 경우 var-store 대신 config-server를 사용해야합니다.
+                *  
+            6. 배포된 환경 체크하기
+                * $ bosh instances —ps #view everything deployed
+                * Route53 같은 곳에 도메인네임 등록했는지 꼭 확인하자
+                * 
+            7. Target the cf api domain and log in
+                * $ cf api api.<YOUR-CFDomain.com> —skip-ssl-validation
+            8. 로그인 하기 (via cf login)
+                * cf login 
+                * 어드민 username 과 password 를 위해 아래 값을 사용해주오. (From deployment-vars.yml)
+                    * user:
+                * Pull uaa_scim_users_admin_name out of deployment-vars. 
+                * This currently defaults to admin: password: . 
+                * Pull uaa_scim_users_admin_password out of deployment-vars.yml.
+                * 
+            9. Changing Stacks
+                * Stack
+                    * a prebuilt roofs (to provide the container filesystem used for running applications)
+                * Command to check fs
+                    * $ cf stacks
+                * Changing a stack and restate an application
+                    * $ cf push APPNAME -s STACKNAME
+            10. Growing the Platform
+                    * Rolling upgrade를 수행하기 위해 Bosh 사용해서 cloud foundry를 재배포한다. (Redeploy)
+            11. Validating Platform Integrity in Production 
+                * CF 배포 후, 스모크 테스트 (Smoke tests) 와 Cloud Foundry acceptance tests (CATS) 를 수행 필수. 
+                * 목적: CF 가 제대로 실행여부 확인
+                * Dev 또는 PROD 환경을 변경하기 전에 테스트를 위해서 전용 SandBox 를 관리해야 함
+            12. Start with a Sandbox
+                1. 비즈니스측면에서 중요한 업무가 Production 인스턴스 에서 실행하기 전에, 스테이징 환경이나 샌드박스환경을 Production 환경을 변경하기전에 먼저 이용해야함
+                2. 이 방법으로 플랫폼 변경사항들 (Infrastructure upgrade, stem cell change, Cloud Foundry release upgrade, buildpack change, or service upgrade) 을 적용하기 전에, PROD application을 격리공간에서 테스트 해볼 수 있게한다.
+                3. Sandbox는 Prod 와 동일환경이어야 함 (containing a representation of the production apps and a mock up of the production services)
+                4. Application Test 이 포함하는 내용 (An example set of application tests)
+                    * ( cf push 명령사용 ) Use the cf push command to push the app 
+                    * ( 앱과 필요한 서비스 묶기 ) Bind an application to a service(s) 
+                    * ( 앱 시작 ) Start an app 
+                    * ( 앱과 restful endpoint 연결 및 응답 점검 ) Target the app on a restful endpoint and validate the response
+                    * ( 주어진 데이터 서비스에 write 하기위한 restful endpoint를 연결 ) Target the app on a restful endpoint to write to a given data service 
+                    * ( Written 값을 읽기위해 restful endpoint 와 앱을 연결 ) Target the app on a restful endpoint to read the written value 
+                    * ( 앱 로깅 점검위해 유니크 문자열을 생성 및 기록하기 ) Generate and log a unique string to validate application logging 
+                    * ( 앱 정지 ) Stop an app 
+                    * ( 앱 삭제 ) Delete an app
+                5. 이런 테스트는 각각의 CF 인스턴스를 대상으로 실행하는 것이 좋음.
+            13. Production Verification Testing
+                * Prod 환경을 live 상태로 만들기 전에, 너의 플랫폼이 하는 행동을 테스트하자.
+                    1. cf-smoke-tests : core Cloud Foundry functionality 기능이 잘 동작하는지 테스트
+                    2. cf-acceptance-tests : Cloud Foundry behavior와 컴포넌트 통합을 테스트
+                    3. 기존 수립되어져 있거나 사용자 정의 설정 (configuration) 을 포함하여, 너가 작성한 앱들과 서비스에 대한 custom acceptance tests 를 보유
+                    4. 배포된 앱들에 대한 외부 모니터링
+                * Prod에 배포 후에도, 의도치 않은 행동변화를 식별하는 것은 매우 중요. 
+                * Prod에 지속적이고 주기적인 너만의 acceptance test 수행은 매우 추천. 반복 수행하다보면 새로운 문제를 찾을 수 있다.
+            14. Production Configuration Validation
+                * CATS 는 전역상태 변수를 수정하기 때문에, Live Production Env. 에 수행하는 것은 비추.
+            15. Logical Environment Structure
+                1. CF 배포 후, 다음 할 일은 IaaS Resource 를 Logica Env. 로 나누어야 한다. 각각의 팀, 상품, 사용자들이 사용할 수 있도록!!
+                2. Orgs and Spaces
+                    1. 사용자 관리 목적으로 그루핑 하는 방법을 제공
+                    2. Orgs의 모든 구성원들은 동일 리소스 Quota Plan, Services availability, and custom domain 을 공유함
+                    3. 하나의 quota는 특정 Org 내의 모든 액티버티에 적용된다.
+                    4. 모든 Application 과 Service 은 하나의 Space 에 지정된다.
+                    5. Space는 application development, deployment, and maintenance 를 위한 공유장소 (shared location)을 제공.
+                    6. 사용자들은 특정 Space 관련 Role들을 가짐.
+                    7. Orgs 는 보통 비즈니스 라인 또는 특정 프로젝트 단위로 정의
+                    8. Spaces 는 두 가지 형태로 정의
+                        1. 큰 조직은 Two-pizza teams 으로 쪼갬. 각각 피자 팀에 Space 할당. 이 팀들은 보통 마이크로 서비스 같은 격리된 컴포넌트를 개발함.
+                        2. Pipeline 통해서 배포할 때, Dev space, Test space, Production space 로 나누어 구성하면 유용함.
+                    9. 기본 Org 사용 및 Space  만들기 그리고 타겟팅하기
+                        * $ cf create-space developer
+                        * $ cf target -o “default_org” -s “developer” (developer space 타겟팅)
+            16. Pushing Your First App
+                1. 샘플 애플리케이션 다운로드
+                    * $ git clone https://github.com/scottfrederick/spring-music 
+                    * $ cd spring-music
+                2. (아규먼트 관리 방법관련) 이 샘플은 App manifest 를 포함하고 있음. App manifest는 필요한 command line arguments 그리고 application metadata 를 정의!! 이건 앱 배포시 중요함. App manifest 안 쓰고, command line arguments 로 넘길 수 도 있음.
+                    1. --- applications: 
+                    2. - name: spring-music 
+                        1. memory: 1G 
+                        2. random-route: true 
+                        3. path: build/libs/spring-music.jar
+                3. Compile Code and cf push
+                    * $ ./gradlew assemble 
+                    * $ cf push (이거 수행하면 배포된 앱에 접근할 수 있는 URL 이 반환됨)
+* Summary
+    * cf-deployment 와 bosh-bootloader 를 사용해서 Cloud Foundry Installation을 수행했음. 
+        * 내가 지금까지 수행했던 내용
+            * BOSH Director 를 배포했음. Bosh-bootloader 를 사용해서 IaaS-specific components 를 생성했음
+            * BOSH 와 cf-deployment를 사용해서 동작하는 Cloud Foundry 인스턴스를 배포했음
+            * (배포한 CF를 점검) CATS smoke test 를 통해서 플랫폼 무결성 유효성 점검을 했음
+            * Org 와 Space Set up 했음
+            * Application push 했음
+
+
+
 # _Ch 6 - Diego_
 # _Ch 7 - Routing Considerations_
 # _Ch 8 - Containers, Containers, Containers_
