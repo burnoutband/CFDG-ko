@@ -1,7 +1,7 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
 
-[1.개발을 하고 싶어요](# _Ch 1 - The Cloud-Native Platform_)
+[1.개발을 하고 싶어요](## Components Overview)
 
 # _Ch 1 - The Cloud-Native Platform_
 # _Ch 2 - Concepts_
