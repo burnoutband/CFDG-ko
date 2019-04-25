@@ -81,7 +81,7 @@
     * The application compilation (known in cf terminology as Staging)
     * Running the application
 3. 요약
-    1. Buildpacks 은 개발자의 application artifact 를 가져와서 컨테이너 이미지화 시킨다. 컨테이너 이미지화 된 그것을 우리는 __ _droplet_ __ 이라고 부른다
+    1. Buildpacks 은 개발자의 application artifact 를 가져와서 컨테이너 이미지화 시킨다. 컨테이너 이미지화 된 그것을 우리는 *__droplet__* 이라고 부른다
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
 
