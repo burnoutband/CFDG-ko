@@ -112,7 +112,7 @@
 * __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 ## Ch 4 - Preparing Your Cloud Foundry Environment
-> - CF 설치 전, 이해하고 있어야 하는 내용 
+> - __CF 설치 전, 이해하고 있어야 하는 내용__ 
     > * Installation steps
     > * Non-technical considerations
     > * Cloud Foundry dependencies and integrations
