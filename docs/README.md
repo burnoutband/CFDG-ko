@@ -366,7 +366,7 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
     * 하나의 BOSH environment 는 Director 와 deployments 로 구성된다.
     * Director VM 은 필요한 모든 BOSH 컴포넌트를 포함하고 있음.
     * Director 시동걸기 : BOSH CLI 를 이용.
-        * bosh create-env (명령어임)
+        * `bosh create-env` (명령어임)
         * 여전히 vac, subnets, security groups, ELB, databases, blobstores 등을 프로비저닝할 일들이 남아있다
     * Bosh-bootloader
         * bosh-bootloader 로 BOSH 와 필요한 IaaS 환경을 설치한다.
