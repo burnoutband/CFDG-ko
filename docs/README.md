@@ -245,7 +245,9 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Tip
     + Bosh-bootloader 를 통해 VPC setup을 시작할 수 있음.
         - 아래 표는 AWS VPC 수동 셋팅시에 고려해야하는 관련 dependencies 목록
-    + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야
+        - <img src="../images/Table4-2.png" width="500">  
+    + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야 함
+        - <img src="../images/Figure4-2.png" width="500">  
 
 ### Jumpbox
 * https://github.com/cloudfoundry-community/jumpbox-boshrelease
