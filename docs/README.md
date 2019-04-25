@@ -84,16 +84,15 @@
     1. Buildpacks 은 개발자의 application artifact 를 가져와서 컨테이너 이미지화 시킨다. 컨테이너 이미지화 된 그것을 우리는 *__droplet__* 이라고 부른다
     2. 결국 application 을 위한 Delivery 체계는 Containerization 이다
 
-
 #### Infrastructure and Cloud Provider Interface
-* __CF 설치 전에 셋팅 해야하는 내용__  
-    > * Networks and subnets (typically a /22 private network)
-    > * VMs with specified CPU and memory requirements
-    > * Storage for VMs
-    > * File server or blobstore
-    > * DNS, certificates, and wildcard domains
-    > * Load balancer to pass traffic into the GoRouter
-    > * NAT for traffic flowing back to the load balancer
+* **CF 설치 전에 셋팅 해야하는 내용**
+    > + Networks and subnets (typically a /22 private network)
+    > + VMs with specified CPU and memory requirements
+    > + Storage for VMs
+    > + File server or blobstore
+    > + DNS, certificates, and wildcard domains
+    > + Load balancer to pass traffic into the GoRouter
+    > + NAT for traffic flowing back to the load balancer
 
 * CF는 CPI (Cloud Provider Interface)를 가지고 인프라스트럭처-특수구현부분을 추상화 한다.
 
