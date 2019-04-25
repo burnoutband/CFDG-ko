@@ -238,9 +238,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Tip
     + Bosh-bootloader 를 통해 VPC setup을 시작할 수 있음.
         - 아래 표는 AWS VPC 수동 셋팅시에 고려해야하는 관련 dependencies 목록
-        - 
     + Bosh-bootloader 를 사용하지 않을 경우, 아래와 같이 직접 VPC 를 셋팅해야
-        - 
 
 > #### Jumpbox
 * https://github.com/cloudfoundry-community/jumpbox-boshrelease
@@ -284,9 +282,9 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     * 
 
 > #### Security Groups
->
+
 > #### Setting Up the Load Balancer
->
+
 > #### Setting Up Domains and Certificates
 * CF 는 기본도메인으로 Registered  wild card domain 이 필요
 * SSL certificate 하고 Cloud Controller 를 설정할 때 위 도메인이 필요
@@ -313,16 +311,15 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     + 마지막으로, Route53에서 ELB를 가리키는 도메인 네임을 등록하기~
 
 ### Summary
-- Cloud Foundry 는 배포하기 전에 심사숙고가 필요한 복잡한 분산 시스템
-- 효율적인 노력과 측정은 미래자원 경합 또는 인프라스트럭처 그리고 구성요소 실패와 같은 도전적인 일들을 완화시킨다.
-"""
-"""
-    1. Concourse.ci 같은 CI pipeline 을 사용하면 Deployment 와 Configuration은 엄청 쉬워짐
-    2. preproduction 과 production 인스턴스의 분리
-    3. Deployment 샘플 -  https://content.pivotal.io/blog/uk-charity-raises-record-donations-powered-by-cloud-foundry
-    4. pivotal cf 관련 이야기
-    5. Diego는 app replacement 와 container life cycle 을 담당하는 서브시스템
-    6. bosh-bootloader 는 key-pair를 생성해줌
+> - Cloud Foundry 는 배포하기 전에 심사숙고가 필요한 복잡한 분산 시스템
+> - 효율적인 노력과 측정은 미래자원 경합 또는 인프라스트럭처 그리고 구성요소 실패와 같은 도전적인 일들을 완화시킨다.
+
+1. Concourse.ci 같은 CI pipeline 을 사용하면 Deployment 와 Configuration은 엄청 쉬워짐
+2. preproduction 과 production 인스턴스의 분리
+3. Deployment 샘플 -  https://content.pivotal.io/blog/uk-charity-raises-record-donations-powered-by-cloud-foundry
+4. pivotal cf 관련 이야기
+5. Diego는 app replacement 와 container life cycle 을 담당하는 서브시스템
+6. bosh-bootloader 는 key-pair를 생성해줌
 
 
 
