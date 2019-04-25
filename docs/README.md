@@ -210,7 +210,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Cell sizing
     + 제일 중요. AI 가 증가할 때 Cell 이 대부분 증가한다
     + Typical sizing for a Cell
-    + <img src="../images/Table4-1.png" width="500">  
+        - <img src="../images/Table4-1.png" width="500">  
 
 * Overcommitting Memory
     + Cell memory 는 8G, APP memory는 2G 라고 하면 하나의 Cell에 3개의 2G가 앱이 running 될 수 있다. 그리고, 이건 1G 메모리가 낭비된다. 결국 Cell 이 늘어나면 낭비되는 메모리도 누적된다.
@@ -232,6 +232,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
         - HA 와 Rolling Upgrade 를 위함
     + GoRouter 경우, application traffic의 크리티컬 패쓰임. 그래서 AZ 당 2개 를 고려할 필요있음
         - 만약에 하나의 AZ이 go offline 한다면, 발생하는 Peak traffic을 처리해야함.
+        - <img src="../images/GoRouter_az.png" width="600">  
          
 ### Setting Up an AWS VPC
 * VPC 셋팅 전 필요한 것
