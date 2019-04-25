@@ -195,8 +195,8 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 >> * Sizing과 Capacity planning 은 CF 배포전의 가설과 달리 metrics 과 실제 데이터를 통해 정보를 제공, 실행하며 조치를 취해야하는 것임
 >> * 명확한 Sizing 보다는 Scoping 하는 걸 추천함
 >> * 인프라 구성과 사이징을 위한 참고자료
->>   > + Reference architecture를 참고하여 필수 콤포넌트들을 식별 (CF components)
->>   > + PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
+>>    + Reference architecture를 참고하여 필수 콤포넌트들을 식별 (CF components)
+>>    + PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
 >> * 구성요소를 구성하고 예상 워크로드 (workload)를 기반으로 Sizing 수행
 >> * Peak load에서 application 이 어떻게 되는지 영향도 파악하기
 >> * 동시접속 처리를 위해 더 많은 instances가 필요 -> 추가된 instance들로 인해 Cell 리소스 추가 필요 -> 추가된 app들의 트래픽 처리량이 늘어남에 따라 동시접속 증가 -> 증가된 동시접속 처리를 위해서 GoRouter가 더 필요
@@ -205,7 +205,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 * Cell sizing
     + 제일 중요. AI 가 증가할 때 Cell 이 대부분 증가한다
     + Typical sizing for a Cell
-        - 
+
 * Overcommitting Memory
     + Cell memory 는 8G, APP memory는 2G 라고 하면 하나의 Cell에 3개의 2G가 앱이 running 될 수 있다. 그리고, 이건 1G 메모리가 낭비된다. 결국 Cell 이 늘어나면 낭비되는 메모리도 누적된다.
     + 반대로, Cell 메모리가 엄청 크면, Chun 의 위험도가 높아진다. (Cell 장애시, 그 안의 app 들이 다른 Cell 로 이동하는 현상)
