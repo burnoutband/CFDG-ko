@@ -332,7 +332,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 
-# _Ch5 - Installing and Configuring Cloud Foundry_
+# _Ch 5 - Installing and Configuring Cloud Foundry_
 CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 * Cloud Foundry 셋업의 주요 관심사와 결정사항
