@@ -11,10 +11,9 @@
 
 ## The Cloud Controller
 
-> ### System State
+### System State
 
-> ### The Cloud Controller Blobstore
-
+### The Cloud Controller Blobstore
 * The CCDB
 
 * The Application Life-Cycle Policy
