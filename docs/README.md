@@ -541,11 +541,11 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
 이번 장에서는 routing best practices를 수립하기 위한 Key Considerations 를 살펴보자
 
 ### Routes
-__App access URL = route__  
-개발자 앱이름 : _앱에 매핑된 route_ = myapp : _myapp.shared-cf-domain.com_  
-__Route 구성은 Domain / Host / Port / Context path 의 조합임__  
-Routes 는 하나의 space 에 속한다. 같은 space 있는 앱들 만 매핑할 수 있다  
-__다른 space 에 route가 이미 존재하면 그 route는 다른 space 에서 사용 못함__
+* __App access URL = route__  
+* 개발자 앱이름 : _앱에 매핑된 route_ = myapp : _myapp.shared-cf-domain.com_  
+* __Route 구성은 Domain / Host / Port / Context path 의 조합임__  
+* Routes 는 하나의 space 에 속한다. 같은 space 있는 앱들 만 매핑할 수 있다  
+* __다른 space 에 route가 이미 존재하면 그 route는 다른 space 에서 사용 못함__
 
 *__1. One app, one route, multiple app instances__*  
     * Apps 는 multiple app instances (ActualLRPs) 로 구성될 수 있음. 따라서 하나의 route 로 접근되는 app instances 는 host:port 에 연관되어 있다. 이 정보는 GoRouter 의 테이블에 저장되어 있음.
