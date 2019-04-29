@@ -7,7 +7,7 @@
 4. [ Preparing Your Cloud Foundry Environment](#4PYCFE)  
 5. [ Installing and Configuring Cloud Foundry](#5ICCF)  
 6. [ Diego](#6DIEGO)  
-7. [ Routing Considerations ](#RC7)  
+7. [ Routing Considerations ](#7RC)  
 8. [ Containers, Containers, Containers](#8CCC)  
 9. [ Buildpacks and Docker](#9BD)  
 10. [ BOSH Concepts](#10BC)  
