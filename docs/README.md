@@ -18,7 +18,7 @@
 15. [ User Account and Authentication Management](#15UAAM)  
 16. [ Designing for Resilience, Planning for Disaster](#16DRPD)  
 17. [ Cloud Foundry Roadmap](#17CFR)  
-_[References](#REFERENCES)_  
+☠︎ _[References](#REFERENCES)_  
 
 <a name="CNP"></a>
 # 1. The Cloud-Native Platform
@@ -680,7 +680,7 @@ Multiple app domains
 
 
 <a name="REFERENCES"></a>
-# _References_
+# _☠︎ References_
 * Cloud Foundry - https://github.com/cloudfoundry
     * Cloud Foundry Documentation - https://github.com/cloudfoundry/docs-book-cloudfoundry
     * The Cloud Foundry Github Repository - https://github.com/cloudfoundry/cf-deployment
