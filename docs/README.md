@@ -553,11 +553,11 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
     * 상태 변화에 대한 응답으로 주기적 (periodically )이고 즉각적 (immediately)으로 routes 를 갱신 (update) 하는 것이 중요.
     <img src="./images/Figure7-1.png" width="500">  
     
-*__2. One app, multiple routes__*  
+2. One app, multiple routes
     * 하나의 앱에 여러 routes 를 매핑하는 것은 중요 (Why?  blue-green deployment 가 가능해짐)
     <img src="./images/Figure7-2.png" width="500">  
 
-*__3. Serveral apps, one route__*  
+3. Serveral apps, one route
     * 이 기능은 blue-green deployment 와 canary deployment 사용을 가능케 하는 중요 feature.
     <img src="./images/Figure7-3.png" width="500">  
 
