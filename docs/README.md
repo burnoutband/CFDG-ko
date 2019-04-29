@@ -1,8 +1,8 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
-# _Ch 1 - The Cloud-Native Platform_
-# _Ch 2 - Concepts_
-# _Ch 3 - Components_
+# Ch 1  The Cloud-Native Platform
+# Ch 2  Concepts
+# Ch 3  Components
 ## Components Overview
 
 ## Routing via the Load Balancer and GoRouter
@@ -113,7 +113,7 @@
 - __Messaging__ : NATS (Network Address Translation) Messaging Bus
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
-# _Ch 4 - Preparing Your Cloud Foundry Environment_
+# Ch 4 - Preparing Your Cloud Foundry Environment
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
     > * Non-technical considerations
@@ -331,8 +331,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 
-# _Ch 5 - Installing and Configuring Cloud Foundry_
----
+# Ch 5 - Installing and Configuring Cloud Foundry
 CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 * Cloud Foundry 셋업의 주요 관심사와 결정사항
@@ -587,14 +586,14 @@ Cloud Foundry 의 routing mechanism 에 대해 알아보자
 
 ## Summary
 
-# _Ch 8 - Containers, Containers, Containers_
-# _Ch 9 - Buildpacks and Docker_
-# _Ch 10 - BOSH Concepts_
-# _Ch 11 - BOSH Releases_
-# _Ch 12 - BOSH Deployments_
-# _Ch 13 - BOSH Components and Commands_
-# _Ch 14 - Debugging Cloud Foundry_
-# _Ch 15 - User Account and Authentication Management_
-# _Ch 16 - Designing for Resilience, Planning for Disaster_
-# _Ch 17 - Cloud Foundry Roadmap_
+# Ch 8 - Containers, Containers, Containers
+# Ch 9 - Buildpacks and Docker
+# Ch 10 - BOSH Concepts
+# Ch 11 - BOSH Releases
+# Ch 12 - BOSH Deployments
+# Ch 13 - BOSH Components and Commands
+# Ch 14 - Debugging Cloud Foundry
+# Ch 15 - User Account and Authentication Management
+# Ch 16 - Designing for Resilience, Planning for Disaster
+# Ch 17 - Cloud Foundry Roadmap
 
