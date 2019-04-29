@@ -332,6 +332,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 # _Ch 5 - Installing and Configuring Cloud Foundry_
+---
 CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 * Cloud Foundry 셋업의 주요 관심사와 결정사항
@@ -531,6 +532,61 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 # _Ch 6 - Diego_
 # _Ch 7 - Routing Considerations_
+Cloud Foundry 의 routing mechanism 에 대해 알아보자
+> Operators 는 이걸 왜 (Why) 알아야 할까?
+* 추가적인 보안제공, 마이크로서비스 구조에 대한 쉬운 배포 제공, Canaries 배포 와 blue/grean 배포를 통해 업그레이드 동안 다운타임 (downtime) 회피를 위해서 CF routing mechanism 을 이해해야 함.
+* CF Components 가 동적으로 라우팅 (routing)을 다루는 방법을 이해하는 것은 플랫폼을 디버깅하거 (debugging platform) 나, 앱-라우팅 (app-routing) 이슈를 디버깅 하기 위해 중요하다.
+
+## Routing Primitives
+
+### Routes
+
+### Hostnames
+
+### Domains
+
+### Context Path Routing
+
+## Routing Components Overview
+
+## Routing Flow
+
+## Route-Mapping Flow
+
+## Load Balancer Considerations
+
+### Setting Request Header Fields
+
+### WebSocket Upgrades
+
+### The PROXY Protocol
+
+### TLS Termination and IPSec
+
+## GoRouter Considerations
+
+### Routing Table
+
+### Router and Route High Availability
+
+### Router Instrumentation and Logging
+
+## Sticky Sessions
+
+## The TCPRouter
+
+### TCP Routing Management Plane
+
+### TCP Router Configuration Steps
+
+## Route Services
+
+### Route Service Workflow
+
+### Route Service Use Cases
+
+## Summary
+
 # _Ch 8 - Containers, Containers, Containers_
 # _Ch 9 - Buildpacks and Docker_
 # _Ch 10 - BOSH Concepts_
