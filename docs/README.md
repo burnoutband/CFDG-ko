@@ -562,8 +562,20 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
     <img src="./images/Figure7-3.png" width="500">  
 
 ### Hostnames
+route 생성시 hostname 을 이용할 수 있음. Hostname 은 app 을 지정하기 위해 명시적으로 사용되는 이름.
+    * Hostname 으로 route 생성
+        * $ cf create-route my-space shared-domain.com --hostname myapp  (
+        * 유니크한 route 를 해당 space (my-space)에서만 사용가능하도록 생성함 (myapp.shared-domain.com)
+    * 앱과 route 를 매핑
+        * $ cf mapp-route app-name domain hostname
+Shared domain 용 route는 항상 hostname 을 사용해야함.
+Hostname 없는 route는 private domain 을 위해서 생성가능
+    * $ cf create-route my-space private-domain.com
+    * Content path 를 앱에 매핑은 가능 (private-domain.com/app1)
+    * Sub domain 은 모두 실패할 겨. 
 
 ### Domains
+Multiple app domains
 
 ### Context Path Routing
 
