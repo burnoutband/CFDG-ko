@@ -18,8 +18,7 @@
 15. [ User Account and Authentication Management](#15UAAM)  
 16. [ Designing for Resilience, Planning for Disaster](#16DRPD)  
 17. [ Cloud Foundry Roadmap](#17CFR)  
-[References](#REFERENCES)  
----
+_[References](#REFERENCES)_  
 
 <a name="CNP"></a>
 # 1. The Cloud-Native Platform
