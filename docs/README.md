@@ -1,23 +1,23 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
 # Table of Contents
-1 [ The Cloud-Native Platform](#1CNP)  
-2 [ Concepts](#2CONCEPTS)  
-3 [ Components](#3COMPONENTS)  
-4 [ Preparing Your Cloud Foundry Environment](#4PYCFE)  
-5 [ Installing and Configuring Cloud Foundry](#5ICCF)  
-6 [ Diego](#6DIEGO)  
-7 [ Routing Considerations ](#RC7)  
-8 [8 Containers, Containers, Containers](#CCC8)  
-9 [ Buildpacks and Docker](#9BD)  
-10 [ BOSH Concepts](#10BC)  
-11 [ BOSH Releases](#11BR)  
-12 [ BOSH Deployments](#12BD)  
-13 [ BOSH Components and Commands](#13BCC)  
-14 [ Debugging Cloud Foundry](#14DCF)  
-15 [ User Account and Authentication Management](#15UAAM)  
-16 [ Designing for Resilience, Planning for Disaster](#16DRPD)  
-17 [ Cloud Foundry Roadmap](#17CFR)  
+1. [ The Cloud-Native Platform](#1CNP)  
+2. [ Concepts](#2CONCEPTS)  
+3. [ Components](#3COMPONENTS)  
+4. [ Preparing Your Cloud Foundry Environment](#4PYCFE)  
+5. [ Installing and Configuring Cloud Foundry](#5ICCF)  
+6. [ Diego](#6DIEGO)  
+7. [ Routing Considerations ](#RC7)  
+8. [ Containers, Containers, Containers](#8CCC)  
+9. [ Buildpacks and Docker](#9BD)  
+10. [ BOSH Concepts](#10BC)  
+11. [ BOSH Releases](#11BR)  
+12. [ BOSH Deployments](#12BD)  
+13. [ BOSH Components and Commands](#13BCC)  
+14. [ Debugging Cloud Foundry](#14DCF)  
+15. [ User Account and Authentication Management](#15UAAM)  
+16. [ Designing for Resilience, Planning for Disaster](#16DRPD)  
+17. [ Cloud Foundry Roadmap](#17CFR)  
 [References](#REFERENCES)  
 ---
 
@@ -25,10 +25,10 @@
 # 1 The Cloud-Native Platform
 
 
-<a name=#2CONCEPTS></a>
+<a name="2CONCEPTS"></a>
 # 2 Concepts
 
-<a name=#3COMPONENTS></a>
+<a name="3COMPONENTS"></a>
 # 3 Components
 ## Components Overview
 
@@ -141,7 +141,7 @@
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
 
-<a name=#4PYCFE></a>
+<a name="4PYCFE"></a>
 # 4 Preparing Your Cloud Foundry Environment
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
@@ -358,7 +358,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 6. bosh-bootloader 는 key-pair를 생성해줌
 
 
-<a name=#5ICCF></a>
+<a name="5ICCF"></a>
 # 5 Installing and Configuring Cloud Foundry
 CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
@@ -556,10 +556,10 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
             * Application push 했음
 
 
-<a name=#6DIEGO></a>
+<a name="6DIEGO"></a>
 # 6 Diego
 
-<a name=#7RC></a>
+<a name="7RC"></a>
 # 7 Routing Considerations
 Cloud Foundry 의 routing mechanism 에 대해 알아보자
 > Operators 는 이걸 왜 (Why) 알아야 할까?
@@ -649,34 +649,34 @@ Multiple app domains
 
 ## Summary
 
-<a name=#8CCC></a>
+<a name="8CCC"></a>
 # 8 Containers, Containers, Containers
 
-<a name=#9BD></a>
+<a name="9BD"></a>
 # 9 Buildpacks and Docker
 
-<a name=#10BC></a>
+<a name="10BC"></a>
 # 10 BOSH Concepts
 
-<a name=#11BR></a>
+<a name="11BR"></a>
 # 11 BOSH Releases
 
-<a name=#12BD></a>
+<a name="12BD"></a>
 # 12 BOSH Deployments
 
-<a name=#13BCC></a>
+<a name="13BCC"></a>
 # 13 BOSH Components and Commands
 
-<a name=#14DCF></a>
+<a name="14DCF"></a>
 # 14 Debugging Cloud Foundry
 
-<a name=#15UAAM></a>
+<a name="15UAAM"></a>
 # 15 User Account and Authentication Management
 
-<a name=#16DRPD></a>
+<a name="16DRPD"></a>
 # 16 Designing for Resilience, Planning for Disaster
 
-<a name=#17CFR></a>
+<a name="17CFR"></a>
 # 17 Cloud Foundry Roadmap
 
 <a name="REFERENCES"></a>
