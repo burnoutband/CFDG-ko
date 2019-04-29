@@ -630,3 +630,75 @@ Multiple app domains
 # 16 Designing for Resilience, Planning for Disaster
 # 17 Cloud Foundry Roadmap
 
+# References
+Cloud Foundry - https://github.com/cloudfoundry
+    * Cloud Foundry Documentation - https://github.com/cloudfoundry/docs-book-cloudfoundry
+    * The Cloud Foundry Github Repository - https://github.com/cloudfoundry/cf-deployment
+    * CF설명 of pivotal - https://docs.pivotal.io/pivotalcf/2-2/concepts/index.html
+    * CF 운영개발 - https://fabianlee.org/tag/cloud-foundry/
+    * Buildpack - https://docs.cloudfoundry.org/buildpacks/index.html
+    * OCI (runtime spec) - https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
+    * Warden 과 Garden 의 차이점 - https://www.altoros.com/blog/cloud-foundry-garden-back-ends-container-security-and-debugging-oss-cf/
+
+BOSH - https://github.com/cloudfoundry/bosh
+    * (동영상) BOSH tutorial -  https://www.youtube.com/channel/UC-KDnH1SSeS6tfeaPZidInQ
+    * (동영상) BOSH Components - https://youtu.be/QNQQG12lyuc 
+    * BOSH Documents - https://bosh.io/docs/
+    * A Guide to using BOSH - http://mariash.github.io/learn-bosh/#introduction
+    * BOSH intro - https://www.cloudfoundry.org/bosh/
+    * BOSH lite - Deprecated 됨. (대신 이걸로 가이드 함 : https://bosh.io/docs/quick-start/ )
+    * BOSH Lite v2 - https://bosh.io/docs/bosh-lite/
+    * BOSH lite 설명 
+        * BOSH vs BOSH-lite: https://github.com/cloudfoundry-community/bosh-lite-demo
+        * https://github.com/PaaS-TA/Guide-1.0-Spaghetti-/blob/master/Install-Guide/BOSH%20Lite/OpenPaaS_PaaSTA_BOSH_Lite_install_guide.md#2--bosh-lite-%EC%84%A4%EC%B9%98
+    * BOSH Utimate Guide - https://github.com/starkandwayne/ultimate-guide-to-bosh
+    * BOSH 설치
+        * https://guide.paas-ta.kr/guide-4.0-rotelle/paas-ta_bosh2_-_-v1.0
+        * virtualbox
+            * https://bosh.io/docs/bosh-lite/
+BOSH Lite (local development env for BOSH using containers in a Vagrant box) - https://github.com/cloudfoundry/bosh-lite
+BOSH-Booloader - https://github.com/cloudfoundry/bosh-bootloader
+인프라 구성과 사이징을 위한 references
+    * PCF Reference architecture - https://docs.pivotal.io/pivotalcf/2-3/plan/index.html
+    * PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
+workload 처리를 위한 routing tier 디자인하기 - https://www.cloudfoundry.org/blog/routing-performance/
+Global Clock - https://stackoverflow.com/questions/46474899/why-is-there-no-global-clock-in-distributed-systems
+Blue-Green and Canary 배포방식 (정윤진 @pivotal)
+    * http://www.comworld.co.kr/news/articleView.html?idxno=49434
+pcfdev & pws 사용해보기
+    * https://kerberosj.tistory.com/230?category=555549
+Certificate 취득
+    *  https://aws.amazon.com/ko/certificate-manager/
+Green Padlock
+    * https://love2dev.com/blog/the-green-padlock/
+BOSH v2 CLI - http://bosh.io 
+Concourse CI
+    * https://concourse-ci.org/
+    * https://github.com/concourse/concourse
+    * http://www.comworld.co.kr/news/articleView.html?idxno=49434
+    * https://www.slideshare.net/PivotalKorea/concourse-ci-meetup20170324
+    * https://specify.io/how-tos/concourse-ci-continious-integration-and-delivery-of-microservices
+    *  https://concoursetutorial.com/
+    *  https://www.youtube.com/watch?v=m_KpkupKITc
+    *  https://www.starkandwayne.com/videos/001-what-is-concourse-and-getting-started/
+    * Concourse Pipeline UI Explained
+        * https://medium.com/concourse-ci/concourse-pipeline-ui-explained-87dfeea83553 
+    * 학습: https://concoursetutorial.com/
+    * 샘플 파이프라인 구성:https://github.com/pivotalservices/concourse-pipeline-samples
+    * 설치: https://concourse-ci.org/install.html
+    * 스프링 클라우드 파이프라인:https://cloud.spring.io/spring-cloud-pipelines/
+cf-smoke-tests
+    * https://github.com/cloudfoundry/cf-smoke-tests
+cf-acceptance-tests
+    * https://github.com/cloudfoundry/cf-acceptance-tests
+blue-green deployment
+    * https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html
+
+
+Pictures
+* BOSH
+    <img src="./images/BOSH.png" width="500">  
+* BOSH Lite 
+    * If you would like to begin installing Cloud Foundry and using BOSH but do not want to incur the cost of running several VMs, I suggest using BOSH Lite . BOSH Lite is a local development environment for BOSH using containers in a Vagrant box. The BOSH Director that comes with BOSH Lite uses a Garden CPI, which uses containers to emulate VMs. The usage of containers makes it an excellent choice for local development, testing, and general BOSH exploration because you can deploy the entire cf-deployment into containers all running on a single VM. This is a great environment to try Cloud Foundry, but be mindful that because everything is running in a single VM, it is suitable only for experimentation, not production workloads. BOSH Lite is discussed further in “BOSH Lite” .
+
+
