@@ -537,12 +537,12 @@ Cloud Foundry 의 routing mechanism 에 대해 알아보자
 > * CF Components 가 동적으로 라우팅 (routing)을 다루는 방법을 이해하는 것은 플랫폼을 디버깅하거 (debugging platform) 나, 앱-라우팅 (app-routing) 이슈를 디버깅 하기 위해 중요하다.
 
 ## Routing Primitives
-CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 수 있어야 한다
+CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 수 있어야 한다.
 이번 장에서는 routing best practices를 수립하기 위한 Key Considerations 를 살펴보자
 
 ### Routes
 __App access URL = route__
-개발자 앱이름 : 앱에 매핑된 route = myapp : myapp.shared-cf-domain.com  
+개발자 앱이름 : _앱에 매핑된 route_ = myapp : _myapp.shared-cf-domain.com_  
 __Route 구성은 Domain / Host / Port / Context path 의 조합임__  
 Routes 는 하나의 space 에 속한다. 같은 space 있는 앱들 만 매핑할 수 있다  
 __다른 space 에 route가 이미 존재하면 그 route는 다른 space 에서 사용 못함__
