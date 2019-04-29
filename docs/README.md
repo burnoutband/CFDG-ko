@@ -562,14 +562,14 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
     <img src="./images/Figure7-3.png" width="500">  
 
 ### Hostnames
-route 생성시 hostname 을 이용할 수 있음. Hostname 은 app 을 지정하기 위해 명시적으로 사용되는 이름.
+* route 생성시 hostname 을 이용할 수 있음. Hostname 은 app 을 지정하기 위해 명시적으로 사용되는 이름.
     * Hostname 으로 route 생성
         * $ cf create-route my-space shared-domain.com --hostname myapp  (
         * 유니크한 route 를 해당 space (my-space)에서만 사용가능하도록 생성함 (myapp.shared-domain.com)
     * 앱과 route 를 매핑
         * $ cf mapp-route app-name domain hostname
-Shared domain 용 route는 항상 hostname 을 사용해야함.
-Hostname 없는 route는 private domain 을 위해서 생성가능
+ * Shared domain 용 route는 항상 hostname 을 사용해야함.
+ * Hostname 없는 route는 private domain 을 위해서 생성가능
     * $ cf create-route my-space private-domain.com
     * Content path 를 앱에 매핑은 가능 (private-domain.com/app1)
     * Sub domain 은 모두 실패할 겨. 
@@ -631,7 +631,7 @@ Multiple app domains
 # 17 Cloud Foundry Roadmap
 
 # References
-Cloud Foundry - https://github.com/cloudfoundry
+* Cloud Foundry - https://github.com/cloudfoundry
     * Cloud Foundry Documentation - https://github.com/cloudfoundry/docs-book-cloudfoundry
     * The Cloud Foundry Github Repository - https://github.com/cloudfoundry/cf-deployment
     * CF설명 of pivotal - https://docs.pivotal.io/pivotalcf/2-2/concepts/index.html
@@ -640,7 +640,7 @@ Cloud Foundry - https://github.com/cloudfoundry
     * OCI (runtime spec) - https://github.com/opencontainers/runtime-spec/blob/master/runtime.md
     * Warden 과 Garden 의 차이점 - https://www.altoros.com/blog/cloud-foundry-garden-back-ends-container-security-and-debugging-oss-cf/
 
-BOSH - https://github.com/cloudfoundry/bosh
+* BOSH - https://github.com/cloudfoundry/bosh
     * (동영상) BOSH tutorial -  https://www.youtube.com/channel/UC-KDnH1SSeS6tfeaPZidInQ
     * (동영상) BOSH Components - https://youtu.be/QNQQG12lyuc 
     * BOSH Documents - https://bosh.io/docs/
@@ -656,23 +656,23 @@ BOSH - https://github.com/cloudfoundry/bosh
         * https://guide.paas-ta.kr/guide-4.0-rotelle/paas-ta_bosh2_-_-v1.0
         * virtualbox
             * https://bosh.io/docs/bosh-lite/
-BOSH Lite (local development env for BOSH using containers in a Vagrant box) - https://github.com/cloudfoundry/bosh-lite
-BOSH-Booloader - https://github.com/cloudfoundry/bosh-bootloader
-인프라 구성과 사이징을 위한 references
+* BOSH Lite (local development env for BOSH using containers in a Vagrant box) - https://github.com/cloudfoundry/bosh-lite
+* BOSH-Booloader - https://github.com/cloudfoundry/bosh-bootloader
+* 인프라 구성과 사이징을 위한 references
     * PCF Reference architecture - https://docs.pivotal.io/pivotalcf/2-3/plan/index.html
     * PCF sizing tool - http://pcfsizer.pivotal.io/#!/sizing/aws/2.2/small
-workload 처리를 위한 routing tier 디자인하기 - https://www.cloudfoundry.org/blog/routing-performance/
-Global Clock - https://stackoverflow.com/questions/46474899/why-is-there-no-global-clock-in-distributed-systems
-Blue-Green and Canary 배포방식 (정윤진 @pivotal)
+* workload 처리를 위한 routing tier 디자인하기 - https://www.cloudfoundry.org/blog/routing-performance/
+* Global Clock - https://stackoverflow.com/questions/46474899/why-is-there-no-global-clock-in-distributed-systems
+* Blue-Green and Canary 배포방식 (정윤진 @pivotal)
     * http://www.comworld.co.kr/news/articleView.html?idxno=49434
-pcfdev & pws 사용해보기
+* pcfdev & pws 사용해보기
     * https://kerberosj.tistory.com/230?category=555549
-Certificate 취득
+* Certificate 취득
     *  https://aws.amazon.com/ko/certificate-manager/
-Green Padlock
+* Green Padlock
     * https://love2dev.com/blog/the-green-padlock/
-BOSH v2 CLI - http://bosh.io 
-Concourse CI
+* BOSH v2 CLI - http://bosh.io 
+* Concourse CI
     * https://concourse-ci.org/
     * https://github.com/concourse/concourse
     * http://www.comworld.co.kr/news/articleView.html?idxno=49434
@@ -687,16 +687,16 @@ Concourse CI
     * 샘플 파이프라인 구성:https://github.com/pivotalservices/concourse-pipeline-samples
     * 설치: https://concourse-ci.org/install.html
     * 스프링 클라우드 파이프라인:https://cloud.spring.io/spring-cloud-pipelines/
-cf-smoke-tests
+* cf-smoke-tests
     * https://github.com/cloudfoundry/cf-smoke-tests
-cf-acceptance-tests
+* cf-acceptance-tests
     * https://github.com/cloudfoundry/cf-acceptance-tests
-blue-green deployment
+* blue-green deployment
     * https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html
 
 
-Pictures
-* BOSH
+# Pictures
+* BOSH  
     <img src="./images/BOSH.png" width="500">  
 * BOSH Lite 
     * If you would like to begin installing Cloud Foundry and using BOSH but do not want to incur the cost of running several VMs, I suggest using BOSH Lite . BOSH Lite is a local development environment for BOSH using containers in a Vagrant box. The BOSH Director that comes with BOSH Lite uses a Garden CPI, which uses containers to emulate VMs. The usage of containers makes it an excellent choice for local development, testing, and general BOSH exploration because you can deploy the entire cf-deployment into containers all running on a single VM. This is a great environment to try Cloud Foundry, but be mindful that because everything is running in a single VM, it is suitable only for experimentation, not production workloads. BOSH Lite is discussed further in “BOSH Lite” .
