@@ -1,8 +1,8 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
-# Ch 1  The Cloud-Native Platform
-# Ch 2  Concepts
-# Ch 3  Components
+# 1  The Cloud-Native Platform
+# 2  Concepts
+# 3  Components
 ## Components Overview
 
 ## Routing via the Load Balancer and GoRouter
@@ -113,7 +113,7 @@
 - __Messaging__ : NATS (Network Address Translation) Messaging Bus
 - __Metrics__ and logging : Loggregator (including Doppler and the Firehose)
 
-# Ch 4 - Preparing Your Cloud Foundry Environment
+# 4 Preparing Your Cloud Foundry Environment
 - __CF 설치 전, 이해하고 있어야 하는 내용__  
     > * Installation steps
     > * Non-technical considerations
@@ -331,7 +331,7 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
 
 
 
-# Ch 5 - Installing and Configuring Cloud Foundry
+# 5 Installing and Configuring Cloud Foundry
 CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 * Cloud Foundry 셋업의 주요 관심사와 결정사항
@@ -529,8 +529,8 @@ CF 배포방법은 다양함. 그럼에도 불구하고, 패턴이 있음
 
 
 
-# _Ch 6 - Diego_
-# _Ch 7 - Routing Considerations_
+# 6 Diego
+# 7 Routing Considerations
 Cloud Foundry 의 routing mechanism 에 대해 알아보자
 > Operators 는 이걸 왜 (Why) 알아야 할까?
 * 추가적인 보안제공, 마이크로서비스 구조에 대한 쉬운 배포 제공, Canaries 배포 와 blue/grean 배포를 통해 업그레이드 동안 다운타임 (downtime) 회피를 위해서 CF routing mechanism 을 이해해야 함.
@@ -586,14 +586,14 @@ Cloud Foundry 의 routing mechanism 에 대해 알아보자
 
 ## Summary
 
-# Ch 8 - Containers, Containers, Containers
-# Ch 9 - Buildpacks and Docker
-# Ch 10 - BOSH Concepts
-# Ch 11 - BOSH Releases
-# Ch 12 - BOSH Deployments
-# Ch 13 - BOSH Components and Commands
-# Ch 14 - Debugging Cloud Foundry
-# Ch 15 - User Account and Authentication Management
-# Ch 16 - Designing for Resilience, Planning for Disaster
-# Ch 17 - Cloud Foundry Roadmap
+# 8 Containers, Containers, Containers
+# 9 Buildpacks and Docker
+# 10 BOSH Concepts
+# 11 BOSH Releases
+# 12 BOSH Deployments
+# 13 BOSH Components and Commands
+# 14 Debugging Cloud Foundry
+# 15 User Account and Authentication Management
+# 16 Designing for Resilience, Planning for Disaster
+# 17 Cloud Foundry Roadmap
 
