@@ -1,6 +1,6 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean*
 
-# Table of Contents
+## Table of Contents
 1. [ The Cloud-Native Platform](#1CNP)  
 2. [ Concepts](#2CONCEPTS)  
 3. [ Components](#3COMPONENTS)  
