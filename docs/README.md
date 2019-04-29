@@ -542,9 +542,9 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
 
 ### Routes
 __App access URL = route__
-개발자 앱이름 : 앱에 매핑된 route = myapp : myapp.shared-cf-domain.com
-__Route 구성은 Domain / Host / Port / Context path 의 조합임__
-Routes 는 하나의 space 에 속한다. 같은 space 있는 앱들 만 매핑할 수 있다
+개발자 앱이름 : 앱에 매핑된 route = myapp : myapp.shared-cf-domain.com  
+__Route 구성은 Domain / Host / Port / Context path 의 조합임__  
+Routes 는 하나의 space 에 속한다. 같은 space 있는 앱들 만 매핑할 수 있다  
 __다른 space 에 route가 이미 존재하면 그 route는 다른 space 에서 사용 못함__
 
 1. One app, one route, multiple app instances
