@@ -1,6 +1,6 @@
 # Cloud Foundry The Definitive Guide - *Translation to Korean (한글)*
 - 이 문서는 플랫폼 운영자들이 Cloud Foundry 를 운영함에 있어 티끌이나마 도움이 되고자 작성되었음.  
-(**_By @burnoutband_**)
+(_By **@burnoutband**_)
 
 ## Table of Contents
 1. [The Cloud-Native Platform](#1CNP)  
