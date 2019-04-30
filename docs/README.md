@@ -342,10 +342,12 @@ Through the use of the BOSH release tool chain, Cloud Foundry is designed to run
     + bosh-bootloader 이용해서 AWS key 와 certificate 를 생성 및 업로드 할 수 있음.
     + bosh-bootloader 를 이용하지 않을 경우
         - openssl 사용하여 certificate (인증서) 생성한다.
-            = $ openssl req -sha256 -new -key <YOUR_KEY.pem> -out <YOUR_KEY_csr.pem> 
-            = $ openssl x509 -req -days 365 -in <YOUR_KEY_csr.pem>
+            ```
+            $ openssl req -sha256 -new -key <YOUR_KEY.pem> -out <YOUR_KEY_csr.pem> 
+            $ openssl x509 -req -days 365 -in <YOUR_KEY_csr.pem>
+            ```
         - 수동으로 aws key를 추가하고 vpc 로 certificate를 업로드한다.
-            = $ aws iam upload-server-certificate --server-certificate-name <YOUR_CERT_NAME> \ --certificate-body file://<YOUR_CERT.pem> \ --private-key file://<YOUR_KEY.pem>
+            `$ aws iam upload-server-certificate --server-certificate-name <YOUR_CERT_NAME> \ --certificate-body file://<YOUR_CERT.pem> \ --private-key file://<YOUR_KEY.pem>`
     + 마지막으로, Route53에서 ELB를 가리키는 도메인 네임을 등록하기~
 
 ## Summary
