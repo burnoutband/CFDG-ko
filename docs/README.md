@@ -609,7 +609,12 @@ CF Operator 는 Routes / Hostnames / Domains / Context paths / Ports 를 다룰 
     * Sub domain 은 모두 실패할 겨. 
 
 ### Domains
-Multiple app domains
+* Cloud Foundry 세계에서의 도메인 용도
+    - Domains(도메인s)은 네임스페이스를 제공
+    - Shared domains 는 모든 Orgs 의 User들에게 가용함. Every Cloud Foundry Instance 는 single default shared domain 이 필요함.
+    - Private domains 은 사용자가 사적으로 등록한 도메인 네임을 위한 라우츠 (routes) 생성을 허용함
+
+
 
 ### Context Path Routing
 
