@@ -21,7 +21,7 @@
 16. [Designing for Resilience, Planning for Disaster](#16DRPD)  
 17. [Cloud Foundry Roadmap](#17CFR)  
 
-☠︎ _[References](#REFERENCES)_  
+#☠︎ _[References](#REFERENCES)_  
 
 <a name="1CNP"></a>
 # 1. The Cloud-Native Platform
