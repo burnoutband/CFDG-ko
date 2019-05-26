@@ -1,4 +1,4 @@
-# Cloud Foundry The Definitive Guide - **
+# Cloud Foundry The Definitive Guide - *(정리)*
 - 이 문서는 플랫폼 운영자들이 Cloud Foundry 를 운영함에 있어 티끌이나마 도움이 되고자 작성되었음.  
 (_By **@burnoutband**_)
 
